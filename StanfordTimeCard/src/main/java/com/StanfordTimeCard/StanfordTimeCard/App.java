@@ -1,10 +1,20 @@
 package com.StanfordTimeCard.StanfordTimeCard;
 
+
+import java.awt.EventQueue;
 /**
  * Hello world!
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        EventQueue.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				new TimeCardSU();
+			}
+        	
+        });
     }
 }
