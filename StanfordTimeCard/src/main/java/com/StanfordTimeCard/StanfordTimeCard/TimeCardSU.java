@@ -21,44 +21,21 @@
 /*     */ import java.util.Collections;
 /*     */ import java.util.Comparator;
 /*     */ import java.util.List;
+
 /*     */ import javax.swing.JFrame;
 /*     */ import javax.swing.JLabel;
 /*     */ import javax.swing.JMenu;
 /*     */ import javax.swing.JMenuBar;
 /*     */ import javax.swing.JMenuItem;
 /*     */ import javax.swing.JOptionPane;
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ public class TimeCardSU
-/*     */   extends JFrame
+
+/*     */ public class TimeCardSU extends JFrame
 /*     */   implements ActionListener
 /*     */ {
 /*  58 */   private final String CLASSNAME = "TimeCardSU";
 /*  59 */   private final String PAYROLL_HOURS_DATABASE_TABLE = "dailyhours";
 /*     */   
-/*     */   private MySQLConnect mySQLDatabase;
+/*     */   private static MySQLConnect mySQLDatabase;
 /*     */   
 /*     */   private JFrame frameStanford;
 /*     */   
@@ -155,13 +132,13 @@
 /*     */                 {
 /*     */                   public void run()
 /*     */                   {
-/* 158 */                     if (TimeCardSU.null.access$0(TimeCardSU.null.this).refreshDatabase()) {
+/* 158 */                     if (TimeCardSU.refreshDatabase()) {
 /* 159 */                       JOptionPane.showMessageDialog(null, "MYSQL database updated");
 /*     */                     } else {
 /* 161 */                       JOptionPane.showMessageDialog(null, "ERROR:::MYSQL database was not updated");
 /*     */                     } 
 /*     */                   }
-/* 164 */                 }"Database Thread");
+/* 164 */                 }, "Database Thread");
 /* 165 */             System.out.println(String.valueOf(databaseThread.getName()) + " has statrted");
 /* 166 */             databaseThread.start();
 /*     */           }
@@ -319,18 +296,7 @@
 /* 319 */       this.mySQLDatabase.getQuery();
 /*     */     }
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
+  
 /*     */   static int convertDateStringToInt(String date) {
 /* 335 */     String delimStr = "-";
 /* 336 */     String[] words = date.split(delimStr);
@@ -340,17 +306,7 @@
 /*     */     
 /* 341 */     return intDate;
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
+  
 /*     */   private String getCredentialsFromFile(String inputFile) {
 /* 355 */     int myMagicNumber = 36;
 /* 356 */     String allData = null;
@@ -379,7 +335,7 @@
 /*     */       String data;
 /* 380 */       JOptionPane.showMessageDialog(null, 
 /* 381 */           "TimeCardSU : Can not find MYSQL database \ncredential file. Program terminated ");
-/* 382 */       data.printStackTrace();
+/* 382 */       e.printStackTrace();
 /*     */     } finally {
 /*     */       try {
 /* 385 */         bufferedReader.close();
@@ -392,16 +348,7 @@
 /*     */     
 /* 393 */     return allData;
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
+
 /*     */   static void sortByDateNWriteToFile(List<DailyInfoModel> dataArray) {
 /* 406 */     if (dataArray == null) {
 /*     */       return;
@@ -411,15 +358,7 @@
 /* 411 */     writeToFile(dataArray);
 /*     */   }
 /*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
+
 /*     */   static void sortListByDate(List<DailyInfoModel> dataArray) {
 /* 424 */     boolean swap = true;
 /* 425 */     int j = 0;
@@ -436,16 +375,7 @@
 /*     */       } 
 /*     */     } 
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
+
 /*     */   static void writeToFile(List<DailyInfoModel> list) {
 /* 450 */     BufferedWriter bw = null;
 /*     */     
@@ -514,10 +444,7 @@
 /*     */       } 
 /*     */     } 
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
+
 /*     */   private void copyFileToGoogleDrive() {
 /* 522 */     InputStream in = null;
 /* 523 */     OutputStream out = null;
@@ -552,51 +479,15 @@
 /*     */       } 
 /*     */     } 
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
-/*     */   protected boolean refreshDatabase() {
-/* 561 */     if (this.mySQLDatabase.refreshDatabase(getDataFromFile()).booleanValue()) {
+   
+/*     */   protected static boolean refreshDatabase() {
+/* 561 */     if (mySQLDatabase.refreshDatabase(getDataFromFile()).booleanValue()) {
 /* 562 */       return true;
 /*     */     }
 /* 564 */     return false;
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
-/*     */   private List<DailyInfoModel> getDataFromFile() {
+
+/*     */   private static List<DailyInfoModel> getDataFromFile() {
 /* 600 */     BufferedReader fileReader = null;
 /* 601 */     String inputFile = "dailyhours.csv";
 /* 602 */     String str = "";
@@ -629,17 +520,7 @@
 /*     */     } 
 /* 630 */     return null;
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
+
 /*     */   public static class SortDailyInfoModelInAscendingOrderByDate
 /*     */     implements Comparator<DailyInfoModel>
 /*     */   {
@@ -647,14 +528,7 @@
 /* 647 */       return TimeCardSU.convertDateStringToInt(a.getDate()) - TimeCardSU.convertDateStringToInt(b.getDate());
 /*     */     }
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
+
 /*     */   public static class SortDailyInfoModelInDescendingOrderByDate
 /*     */     implements Comparator<DailyInfoModel>
 /*     */   {
@@ -662,9 +536,7 @@
 /* 662 */       return TimeCardSU.convertDateStringToInt(b.getDate()) - TimeCardSU.convertDateStringToInt(a.getDate());
 /*     */     }
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */   
+  
 /*     */   public static String reformatDateString(String date) {
 /* 669 */     String newDate = null;
 /* 670 */     String DELIMITER = "-";
@@ -688,17 +560,7 @@
 /* 688 */     newDate = String.valueOf(oldDate[0]) + "-" + month + "-" + day;
 /* 689 */     return newDate;
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
+
 /*     */   public static Boolean replaceDataInFile(List<DailyInfoModel> list, String filename) {
 /* 703 */     Boolean isWriteSuccess = Boolean.valueOf(false);
 /* 704 */     BufferedWriter bw = null;
