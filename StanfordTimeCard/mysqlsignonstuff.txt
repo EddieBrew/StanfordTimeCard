@@ -1,0 +1,65 @@
+f923dcae6e2e3497c95b0bcffa49b5c6c3c12d98*4c37d7ab882aa8f6d1dd6e81a067c971a82f553a*http://3.81.9.230:80/parse/
+f923dcae6e2e3497c95b0bcf7ab882aa8f6d1dd6e81a067c971a82f553a
+//3.81.9.230:80/parse/f923dcae6e2e3497c95b0bcffa49b5c6c3c12d984c37d7ab882aa8f6d1dd6e81a067c971a82f553ahttp:
+$ ls -l *.svg
+-r--r--r-- 1 tom users  6679 Jul 26  2012 pumpkin_48x48.svgc12d984c37d7ab882aa8f6d1dd6e81a067c9
+f923dcae6e2e3497c95b0bcffa49b5c6c3c12d98#4c37d7ab882aa8f6d1dd6e81a067c971a82f553a#http://3.86.49.161:80/parse/
+-r--r--r-- 1 tom users 17372 Jul 30  2012 sink_48x48.svgc12d984c37d7ab882aa8f6d1dd6e81a067c9
+-r--r--r-- 1 tom users  5929 Jul 25  2012 vile_48x48.svg
+-r--r--r-- 1 tom users  3553c12d984c37d7ab882aa8f6d1dd6e81a067c9 Jul 28  2012 vile-mini.svg
+$ file *.svgc95b0bcffa49b5c6c3c12d98*4
+pumpkin_48x48.svg: SVG Scalable Vector Graphics image
+sink_48x48.svg:    SVG Scalable Vector Graphics image
+vile-mini.svg:     SVG Scalable Vector Graphics image
+vile_48x48.svg:    SVG Scalable Vector Graphics image
+$ file --mime-type *.svgsink_48x48.svg:    image/svg+xml
+pumpkin_48x48.svg: image/svg+xml
+sink_48x48.svg:    image/svg+xmlsink_48x48.svg:    image/svg+xml
+vile-mini.svg:     image/svg+xml
+vile_48x48.svg:    image/svg+xmlsink_48x48.svg:    image/svg+xml
+f923dcae6e2e3497c95b0bcffa49b5c6c3c12d98*4c37d7ab882aa8f6d1dd6e81a067c971a82f553a*http://3.81.9.230:80/parse/
+f923dcae6e2e3497c95b0bcf7ab882aa8f6d1dd6e81a067c971a82f553a
+jdbc:mysql://127.0.0.1:3306/home_improvement%rbrewer5967%Great2022#
+//3.81.9.230:80/parse/#rbrewer#f923dcae6e2e3497c95b0bcffa4#9b5c6c3c12d984c37d7#luistam1959#ab882aa8f6d1dd6e81a067c971a82f553ahttp:
+$ ls -l *.svg
+-r--r--r-- 1 tom users  6679 Jul 26  2012 pumpkin_48x48.svgc12d984c37d7ab882aa8f6d1dd6e81a067c9
+f923dcae6e2e3497c95b0bcffa49b5c6c3c12d98#4c37d7ab882aa8f6d1dd6e81a067c971a82f553a#http://3.86.49.161:80/parse/
+jdbc:mysql://127.0.0.1:3306/penlocker_database%rbrewer%Great2BeAliveN2022#
+jdbc:mysql://127.0.0.1:3306/penlocker_database%rbrewer%Great2BeAliveN2022#
+-r--r--r-- 1 tom users 17372 Jul 30  2012 sink_48x48.svgc12d984c37d7ab882aa8f6d1dd6e81a067c9
+-r--r--r-- 1 tom users  5929 Jul 25  2012 vile_48x48.svg
+-r--r--r-- 1 tom users  3553c12d984c37d7ab882aa8f6d1dd6e81a067c9 Jul 28  2012 vile-mini.svg
+$ file *.svgc95b0bcffa49b5c6c3c12d98*4
+pumpkin_48x48.svg: SVG Scalable Vector Graphics image
+sink_48x48.svg:    SVG Scalable Vector Graphics image
+vile-mini.svg:     SVG Scalable Vector Graphics image
+jdbc:mysql://127.0.0.1:3306/stanford_timecard%rbrewer%Great2BeAliveN2022#
+jdbc:mysql://127.0.0.1:3306/home_improvement.home_expense%rbrewer5967%Great2022#
+vile_48x48.svg:    SVG Scalable Vector Graphics image
+$ file --mime-type *.svgsink_48x48.svg:    image/svg+xml
+pumpkin_48x48.svg: image/svg+xml
+jdbc:mysql://127.0.0.1:3306/home_improvement.home_expense%rbrewer%Great2BeAliveN2022#
+sink_48x48.svg:    image/svg+xmlsink_48x48.svg:    image/svg+xml
+vile-mini.svg:     image/svg+xml
+vile_48x48.svg:    image/svg+xmlsink_48x48.svg:    image/svg+xml
+-r--r--r-- 1 tom users  6679 Jul 26  2012 pumpkin_48x48.svgc12d984c37d7ab882aa8f6d1dd6e81a067c9
+f923dcae6e2e3497c95b0bcffa49b5c6c3c12d98#4c37d7ab882aa8f6d1dd6e81a067c971a82f553a#http://3.86.49.161:80/parse/
+-r--r--r-- 1 tom users 17372 Jul 30  2012 sink_48x48.svgc12d984c37d7ab882aa8f6d1dd6e81a067c9
+-r--r--r-- 1 tom users  5929 Jul 25  2012 vile_48x48.svg
+-r--r--r-- 1 tom users  3553c12d984c37d7ab882aa8f6d1dd6e81a067c9 Jul 28  2012 vile-mini.svg
+jdbc:mysql://127.0.0.1:3306/home_improvement.home_expense%rbrewer5967%Great2022#
+sink_48x48.svg:    image/svg+xmlsink_48x48.svg:    image/svg+xml
+vile-mini.svg:     image/svg+xml
+vile_48x48.svg:    image/svg+xmlsink_48x48.svg:    image/svg+xml
+f923dcae6e2e3497c95b0bcffa49b5c6c3c12d98*4c37d7ab882aa8f6d1dd6e81a067c971a82f553a*http://3.81.9.230:80/parse/
+f923dcae6e2e3497c95b0bcf7ab882aa8f6d1dd6e81a067c971a82f553a
+//3.81.9.230:80/parse/#rbrewer#f923dcae6e2e3497c95b0bcffa4#9b5c6c3c12d984c37d7#luistam1959#ab882aa8f6d1dd6e81a067c971a82f553ahttp:
+$ ls -l *.svg
+-r--r--r-- 1 tom users  6679 Jul 26  2012 pumpkin_48x48.svgc12d984c37d7ab882aa8f6d1dd6e81a067c9
+f923dcae6e2e3497c95b0bcffa49b5c6c3c12d98#4c37d7ab882aa8f6d1dd6e81a067c971a82f553a#http://3.86.49.161:80/parse/
+jdbc:mysql://127.0.0.1:3306/home_improvement.home_expense%rbrewer%Great2BeAliveN2022#
+-r--r--r-- 1 tom users 17372 Jul 30  2012 sink_48x48.svgc12d984c37d7ab882aa8f6d1dd6e81a067c9
+-r--r--r-- 1 tom users  5929 Jul 25  2012 vile_48x48.svg
+-r--r--r-- 1 tom users  3553c12d984c37d7ab882aa8f6d1dd6e81a067c9 Jul 28  2012 vile-mini.svg
+$ file *.svgc95b0bcffa49b5c6c3c12d98*4
+jdbc:mysql://127.0.0.1:3306/home_improvement.home_expense%rbrewer5967%Great2022#
