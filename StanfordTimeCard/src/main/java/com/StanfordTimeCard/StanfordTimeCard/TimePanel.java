@@ -1,6 +1,4 @@
-/*     */ package com.stanfordtimecard.maven.timecard;
-/*     */ 
-/*     */ import com.toedter.calendar.JDateChooser;
+/*     */ package com.StanfordTimeCard.StanfordTimeCard;
 /*     */ import java.awt.Color;
 /*     */ import java.awt.Component;
 /*     */ import java.awt.Font;
@@ -18,6 +16,7 @@
 /*     */ import java.text.SimpleDateFormat;
 /*     */ import java.util.Calendar;
 /*     */ import java.util.Date;
+
 /*     */ import javax.swing.JButton;
 /*     */ import javax.swing.JCheckBox;
 /*     */ import javax.swing.JLabel;
@@ -26,6 +25,9 @@
 /*     */ import javax.swing.JPanel;
 /*     */ import javax.swing.JTextField;
 /*     */ import javax.swing.border.BevelBorder;
+
+/*     */ 
+/*     */ import com.toedter.calendar.JDateChooser;
 /*     */ 
 /*     */ 
 /*     */ 

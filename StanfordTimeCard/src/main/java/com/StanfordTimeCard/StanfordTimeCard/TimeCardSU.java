@@ -1,4 +1,4 @@
-/*     */ package com.stanfordtimecard.maven.timecard;
+/*     */ package com.StanfordTimeCard.StanfordTimeCard;
 /*     */ 
 /*     */ import java.awt.BorderLayout;
 /*     */ import java.awt.Color;
