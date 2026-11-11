@@ -34,7 +34,7 @@ import java.awt.Dimension;
 /*     */   implements ActionListener
 /*     */ {
 /*  58 */   private final String CLASSNAME = "TimeCardSU";
-/*  59 */   private final String PAYROLL_HOURS_DATABASE_TABLE = "dailyhours";
+/*  59 */   private final String TIMECARD_DATABASE = "dailyhours";
 /*     */   
 /*     */   private static MySQLConnect mySQLDatabase;
 /*     */   
@@ -51,6 +51,17 @@ import java.awt.Dimension;
 /*     */   private JLabel lblDatabaseStatus;
 /*     */   private JMenuBar menuBar;
 			private ImagePanel panel;
+			private JMenu myMenu; 
+			private JMenuItem queries;
+			private JMenuItem modify;
+			private JMenuItem logout; 
+			private JMenuItem download; 
+			private JMenuItem upload; 
+			private JMenuItem about;
+			private JMenuItem reformatDate;
+			private JMenuItem reconnectToDatabase; 
+			private static final long serialVersionUID = 1L;
+			 private final String BACKGROUND_PIC = "mesep_alt.jpg";
 /*     */   
 /*     */   TimeCardSU() {
 /*  77 */     this.frameStanford = new JFrame();
@@ -78,6 +89,7 @@ import java.awt.Dimension;
 /*     */ 
 /*     */ 
 /*     */     this.queries = new JMenuItem("Queries");
+			  this.modify = new JMenuItem("Modify Database Entries");
 /* 106 */     this.download = new JMenuItem("Download From Server");
 /* 107 */     this.upload = new JMenuItem("Copy File Data To Database");
 /* 108 */     this.logout = new JMenuItem("Logout");
@@ -88,6 +100,7 @@ import java.awt.Dimension;
 /*     */     
 /* 114 */    
 			  this.myMenu.add(this.queries);
+			  this.myMenu.add(this.modify);
 			  this.myMenu.add(this.download);
 /* 115 */     this.myMenu.add(this.upload);
 /*     */     
@@ -100,7 +113,20 @@ import java.awt.Dimension;
 /*     */           public void actionPerformed(ActionEvent e) {}
 /*     */         });
 
+  
 
+
+			this.modify.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					new ModifyDatabaseValues(mySQLDatabase.getURL(), mySQLDatabase.getID(), mySQLDatabase.getPW());
+				}
+				
+			});
+			
+			
 			this.queries.addActionListener(new ActionListener() {
 
 				@Override
@@ -204,16 +230,7 @@ import java.awt.Dimension;
 /* 230 */     setupMainFrameDisplay();
 /* 231 */     System.out.println(this.databaseStatus);
 /*     */   }
-/*     */   private JMenu myMenu; 
-			private JMenuItem queries;
-			private JMenuItem logout; 
-			private JMenuItem download; 
-			private JMenuItem upload; 
-			private JMenuItem about;
-			private JMenuItem reformatDate;
-			private JMenuItem reconnectToDatabase; 
-			private static final long serialVersionUID = 1L;
-			 private final String BACKGROUND_PIC = "mesep_alt.jpg";
+/*     */   
 			
 /*     */   private void setupMainFrameDisplay() {
 /* 235 */     this.databaseStatus = sqlSignonCredential();
