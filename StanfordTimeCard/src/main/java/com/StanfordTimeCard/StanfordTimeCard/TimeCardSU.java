@@ -79,7 +79,7 @@
 /* 102 */     this.menuBar.add(this.lblDatabaseStatus, "East");
 /*     */ 
 /*     */ 
-/*     */     
+/*     */     this.queries = new JMenuItem("Queries");
 /* 106 */     this.download = new JMenuItem("Download From Server");
 /* 107 */     this.upload = new JMenuItem("Copy File Data To Database");
 /* 108 */     this.logout = new JMenuItem("Logout");
@@ -88,7 +88,9 @@
 /* 111 */     this.reconnectToDatabase = new JMenuItem("Reconnect To Database");
 /* 112 */     this.reformatDate.setVisible(false);
 /*     */     
-/* 114 */     this.myMenu.add(this.download);
+/* 114 */    
+			  this.myMenu.add(this.queries);
+			  this.myMenu.add(this.download);
 /* 115 */     this.myMenu.add(this.upload);
 /*     */     
 /* 117 */     this.myMenu.add(this.reconnectToDatabase);
@@ -99,21 +101,18 @@
 /*     */         {
 /*     */           public void actionPerformed(ActionEvent e) {}
 /*     */         });
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */     
+
+
+			this.queries.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					new QueryFilterTable(mySQLDatabase.getURL(), mySQLDatabase.getID(), mySQLDatabase.getPW());				
+				}
+				
+			});
+     
 /* 140 */     this.download.addActionListener(new ActionListener()
 /*     */         {
 /*     */           public void actionPerformed(ActionEvent e)
@@ -207,7 +206,15 @@
 /* 230 */     setupMainFrameDisplay();
 /* 231 */     System.out.println(this.databaseStatus);
 /*     */   }
-/*     */   private JMenu myMenu; private JMenuItem logout; private JMenuItem download; private JMenuItem upload; private JMenuItem about; private JMenuItem reformatDate; private JMenuItem reconnectToDatabase; private static final long serialVersionUID = 1L;
+/*     */   private JMenu myMenu; 
+			private JMenuItem queries;
+			private JMenuItem logout; 
+			private JMenuItem download; 
+			private JMenuItem upload; 
+			private JMenuItem about;
+			private JMenuItem reformatDate;
+			private JMenuItem reconnectToDatabase; 
+			private static final long serialVersionUID = 1L;
 /*     */   private void setupMainFrameDisplay() {
 /* 235 */     this.databaseStatus = sqlSignonCredential();
 /*     */     

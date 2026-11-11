@@ -53,7 +53,22 @@
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */   
+/*     */   public String getURL() {
+	
+				return jdbcUrl;
+			}
+
+			public String getID() {
+				
+				return userid;
+			}
+			
+			 public  String getPW() {
+					
+					return password;
+				}
+
+
 /*     */   public DailyInfoModel getSimilarDate() {
 /*  55 */     return this.similarDate;
 /*     */   }

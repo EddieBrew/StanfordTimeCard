@@ -1,4 +1,4 @@
-package com.homeimprovement;
+package com.StanfordTimeCard.StanfordTimeCard;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

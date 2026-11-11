@@ -1,4 +1,4 @@
-package com.homeimprovement;
+package com.StanfordTimeCard.StanfordTimeCard;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -21,14 +21,12 @@ public class QueryPanel extends JPanel {
 
     //private final JLabel totalLabel = new JLabel("Total");
     private boolean suppressSearch = false;
-    private final JTextField costField = new JTextField(12);
-    private final JComboBox<String> areaFilter = new JComboBox<>(
-            new String[]{"", "ATTIC", "BACKYARD", "BATH1", "BATH2", "BDRM1", "BDRM2", "BDRM3", "BDRM4",
-                "FRONTYARD", "GARAGE", "HALLWAY", "KITCHEN", "LIVING ROOM", "ROOF"});
-    private final JComboBox<String> itemFilter = new JComboBox<>(
-            new String[]{"", "ANTENNA", "CHIMNEY", "CLOSET", "DISHWASHER", "DOOR", "DRYER", "FAN", "FENCE",
-                "FLOOR", "FRIG", "GUTTERS", "INTERNET", "LIGHTS", "MIRROR", "MISC", "OUTLETS", "OVEN", "PLANTS",
-                "SEWAGE LINE", "SHOWER/TUB", "SINK", "TILE", "TOILET", "TV", "WALLS", "WASHER", "WINDOWS"});
+    private final JTextField regHoursField = new JTextField(12);
+    private final JTextField otHoursField = new JTextField(12);
+    private final JComboBox<String> dayFilter = new JComboBox<>(
+            new String[]{"", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"});
+    private final JComboBox<String> eventFilter = new JComboBox<>(
+            new String[]{"", "FOOTBALL", "FOOTHILLS", "WINTER SECURITY", "WOMEN BASKETBALL", "MEN BASKETBALL", "HILLEL", "FROST", "STADIUM CONCERT"});
     private final JDateChooser dateFrom = new JDateChooser();
     private final JDateChooser dateTo = new JDateChooser();
 
@@ -54,17 +52,17 @@ public class QueryPanel extends JPanel {
                 searchAction.run();
             }
         });
-        costField.addActionListener(e -> {
+        regHoursField.addActionListener(e -> {
             if (!suppressSearch) {
                 searchAction.run();
             }
         });
-        areaFilter.addActionListener(e -> {
+        dayFilter.addActionListener(e -> {
             if (!suppressSearch) {
                 searchAction.run();
             }
         });
-        itemFilter.addActionListener(e -> {
+        eventFilter.addActionListener(e -> {
             if (!suppressSearch) {
                 searchAction.run();
             }
@@ -84,9 +82,9 @@ public class QueryPanel extends JPanel {
             suppressSearch = true;
 
             try {
-                costField.setText("");
-                areaFilter.setSelectedIndex(0);
-                itemFilter.setSelectedIndex(0);
+                regHoursField.setText("");
+                dayFilter.setSelectedIndex(0);
+                eventFilter.setSelectedIndex(0);
                 dateFrom.setDate(null);
                 dateTo.setDate(null);
             } finally {
@@ -116,12 +114,12 @@ public class QueryPanel extends JPanel {
         add(dateFrom);
         add(new JLabel("To:"));
         add(dateTo);
-        add(new JLabel("Area:"));
-        add(areaFilter);
-        add(new JLabel("Item:"));
-        add(itemFilter);
-        add(new JLabel("Cost"));
-        add(costField);
+        add(new JLabel("Day:"));
+        add(dayFilter);
+        add(new JLabel("Ename:"));
+        add(eventFilter);
+        add(new JLabel("RegHours"));
+        add(regHoursField);
         add(searchBtn);
         add(clearBtn);
     }
@@ -156,22 +154,22 @@ public class QueryPanel extends JPanel {
         StringBuilder w = new StringBuilder();
         List<Object> params = new ArrayList<>();
 
-        String kw = costField.getText().trim();
+        String kw = regHoursField.getText().trim();
         if (!kw.isEmpty()) {
             w.append(" AND CAST(COST AS CHAR) LIKE  ? ");
             params.add("%" + kw + "%");
         }
 
-        String area = (String) areaFilter.getSelectedItem();
-        if (area != null && !area.isBlank()) {
+        String day = (String) dayFilter.getSelectedItem();
+        if (day != null && !day.isBlank()) {
             w.append(" AND AREA = ? ");
-            params.add(area);
+            params.add(day);
         }
 
-        String item = (String) itemFilter.getSelectedItem();
-        if (item != null && !item.isBlank()) {
+        String eventname = (String) eventFilter.getSelectedItem();
+        if (eventname != null && !eventname.isBlank()) {
             w.append(" AND ITEMS = ? ");
-            params.add(item);
+            params.add(eventname);
         }
 
         final String dateCol = "`DATE`";

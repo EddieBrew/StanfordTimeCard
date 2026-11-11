@@ -1,4 +1,4 @@
-package com.homeimprovement;
+package com.StanfordTimeCard.StanfordTimeCard;
 
 
 /*
@@ -35,10 +35,14 @@ import javax.swing.table.TableRowSorter;
 //Formally RepairsApp class
 public class QueryFilterTable extends JFrame {
 
-    private final String URL;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final String URL;
     private final String USER;
     private final String PASS;
-    private final String HOMEIMPROVEMENT_DATABASE_TABLE = "houseexpenses";// database that stores past locker
+    private final String TIMECARD_DATABASE = "dailyhours";// database that stores past locker
     // information
     private final JTable summaryTable;
     private final DefaultTableModel summaryModel;
@@ -66,7 +70,9 @@ public class QueryFilterTable extends JFrame {
 
         // Build the summary table
         summaryModel = new DefaultTableModel(new String[]{"Room", "Total Cost"}, 0) {
-            @Override
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
@@ -90,17 +96,17 @@ public class QueryFilterTable extends JFrame {
                 db,
                 "houseexpenses", // table
                 "RECORD_ID", // pk
-                new String[]{"DATE", "AREA", "ITEMS", "COST", "FILENAME", "INFO", "VALUE"},
-                new String[]{"DATE", "AREA", "ITEMS", "COST", "FILENAME", "INFO", "VALUE"},
+                new String[]{"DATE", "DAY", "EVENTNUMBER", "EVENTNAME", "TIME", "REGHOURS", "OTHOURS"},
+                new String[]{"DATE", "DAY", "EVENTNUMBER", "EVENTNAME", "TIME", "REGHOURS", "OTHOURS"},
                 new Class<?>[]{
                     Integer.class, // RECORD_ID
                     String.class, // DATE
-                    String.class, // AREA
-                    String.class, // ITEMS
-                    BigDecimal.class, // COST
-                    String.class, // FILENAME
-                    String.class, // VALUE
-                    String.class // INFO
+                    String.class, // DAY
+                    Integer.class, // EVENTNUMBER
+                    String.class, // EVENTNAME
+                    String.class, // TIME
+                    Double.class, // REGHOURS
+                    Double.class // OTHOURS
                 });
 
         table = new JTable(model);
@@ -142,8 +148,8 @@ public class QueryFilterTable extends JFrame {
         try {
             QueryPanel.WhereClause wc = queryPanel.buildWhere();
 
-            String sql = "SELECT RECORD_ID, `DATE`, AREA, ITEMS, COST, FILENAME, INFO, VALUE "
-                    + "FROM " + HOMEIMPROVEMENT_DATABASE_TABLE + " WHERE 1=1 " + wc.fragment() + " ORDER BY 'DATE' DESC";
+            String sql = "SELECT RECORD_ID, `DATE`, DAY, EVENTNUMBER, EVENTNAME, TIME, REGHOURS, OTHOURS "
+                    + "FROM " + TIMECARD_DATABASE + " WHERE 1=1 " + wc.fragment() + " ORDER BY 'DATE' DESC";
 
             //System.out.println("SQL: " + sql);
             //System.out.println("params   = " + wc.params());
@@ -229,8 +235,8 @@ public class QueryFilterTable extends JFrame {
     }
 
     private void showBreakdown() {
-        String sql = "SELECT AREA, COUNT(*) as items, SUM(COST) as total "
-                + "FROM houseexpenses "
+        String sql = "SELECT DAY, COUNT(*) as items, SUM(COST) as total "
+                + "FROM dailyhours "
                 + "WHERE COST IS NOT NULL "
                 + "GROUP BY AREA ORDER BY total DESC";
 
