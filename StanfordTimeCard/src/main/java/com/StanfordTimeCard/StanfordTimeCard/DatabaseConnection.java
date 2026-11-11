@@ -1,4 +1,4 @@
-package com.StanfordTimeCard.StanfordTimeCard
+package com.StanfordTimeCard.StanfordTimeCard;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

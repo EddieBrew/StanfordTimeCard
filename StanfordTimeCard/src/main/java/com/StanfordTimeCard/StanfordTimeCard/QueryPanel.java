@@ -83,6 +83,7 @@ public class QueryPanel extends JPanel {
 
             try {
                 regHoursField.setText("");
+                otHoursField.setText("");
                 dayFilter.setSelectedIndex(0);
                 eventFilter.setSelectedIndex(0);
                 dateFrom.setDate(null);
@@ -120,6 +121,8 @@ public class QueryPanel extends JPanel {
         add(eventFilter);
         add(new JLabel("RegHours"));
         add(regHoursField);
+        add(new JLabel("OtHours"));
+        add(otHoursField);
         add(searchBtn);
         add(clearBtn);
     }

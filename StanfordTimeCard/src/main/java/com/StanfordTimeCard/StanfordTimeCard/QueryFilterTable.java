@@ -69,7 +69,7 @@ public class QueryFilterTable extends JFrame {
         db.testOrExit(null);
 
         // Build the summary table
-        summaryModel = new DefaultTableModel(new String[]{"Room", "Total Cost"}, 0) {
+        summaryModel = new DefaultTableModel(new String[]{"REGHOURS", "TOTAL HOURS"}, 0) {
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -235,22 +235,22 @@ public class QueryFilterTable extends JFrame {
     }
 
     private void showBreakdown() {
-        String sql = "SELECT DAY, COUNT(*) as items, SUM(COST) as total "
+        String sql = "SELECT DAY, COUNT(*) as REGHOURS, SUM(REGHOURS) as total "
                 + "FROM dailyhours "
-                + "WHERE COST IS NOT NULL "
-                + "GROUP BY AREA ORDER BY total DESC";
+                + "WHERE total IS NOT NULL "
+                + "GROUP BY REGHOURS ORDER BY total DESC";
 
         StringBuilder sb = new StringBuilder("Cost Breakdown by Room:\n\n");
 
         try (Statement s = db.get().createStatement(); ResultSet rs = s.executeQuery(sql)) {
             while (rs.next()) {
-                String area = rs.getString("AREA");
-                if (area == null || area.isBlank()) {
-                    area = "Unassigned";
+                String regHours = rs.getString("REGHOURS");
+                if (regHours == null || regHours.isBlank()) {
+                    regHours = "Unassigned";
                 }
-                int count = rs.getInt("items");
+                int count = rs.getInt("REGHOURS");
                 double sum = rs.getDouble("total");
-                sb.append(String.format("%-15s  %3d items  $%,.2f\n", area, count, sum));
+                sb.append(String.format("%-15s  %3d items  %,.2f\n", regHours, count, sum));
             }
         } catch (SQLException ex) {
             showError("Breakdown failed", ex);
@@ -268,8 +268,8 @@ public class QueryFilterTable extends JFrame {
         summaryModel.setRowCount(0);
 
         QueryPanel.WhereClause wc = queryPanel.buildWhere();
-        String sql = "SELECT AREA, SUM(COST) as total FROM houseexpenses WHERE 1=1 "
-                + wc.fragment() + " GROUP BY AREA ORDER BY AREA ASC";
+        String sql = "SELECT REGHOURS, SUM(REGHOURS) as total FROM dailyhours WHERE 1=1 "
+                + wc.fragment();
 
         double grandTotal = 0.0;
 
@@ -281,13 +281,13 @@ public class QueryFilterTable extends JFrame {
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    String area = rs.getString("AREA");
-                    if (area == null || area.isBlank()) {
-                        area = "Unassigned";
+                    String reghours = rs.getString("REGHOURS");
+                    if (reghours == null || reghours.isBlank()) {
+                        reghours = "Unassigned";
                     }
                     java.math.BigDecimal sum = rs.getBigDecimal("total");
 
-                    summaryModel.addRow(new Object[]{area, sum});
+                    summaryModel.addRow(new Object[]{reghours, sum});
 
                     // Add to our running total
                     if (sum != null) {
@@ -305,11 +305,11 @@ public class QueryFilterTable extends JFrame {
         }
     }
 
-    private double getCostTotal() {
+    private double getRegHoursTotal() {
         double total = 0.0;
-        int costCol = 4; // 0=pk, 1=DATE, 2=AREA, 3=ITEMS, 4=COST
+        int regCol = 6; // 0=pk, 1=DATE, 2=DAY........ 6=REGHours
         for (int r = 0; r < model.getRowCount(); r++) {
-            Object v = model.getValueAt(r, costCol);
+            Object v = model.getValueAt(r, regCol);
             if (v instanceof BigDecimal) {
                 total += ((BigDecimal) v).doubleValue();
             }
@@ -318,8 +318,8 @@ public class QueryFilterTable extends JFrame {
     }
 
     private void updateStatus() {
-        double total = getCostTotal();
-        status.setText(String.format(" Loaded %d rows  |  Total Cost: $%,.2f",
+        double total = getRegHoursTotal();
+        status.setText(String.format(" Loaded %d rows  |  Total RegHours: %,.2f",
                 model.getRowCount(), total));
 
         // If you added the label to QueryPanel:
@@ -342,7 +342,7 @@ public class QueryFilterTable extends JFrame {
                 // If this is the "Total Cost" column (index 1) and it's a number
                 if (column == 1 && value instanceof Number) {
                     double amount = ((Number) value).doubleValue();
-                    setText(String.format("$%,.2f", amount));
+                    setText(String.format("%,.2f", amount));
                     setHorizontalAlignment(SwingConstants.RIGHT); // Right-align for money
                 } else {
                     setText(value == null ? "" : value.toString());
