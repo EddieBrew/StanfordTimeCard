@@ -2,6 +2,7 @@
 /*     */ 
 /*     */ import java.awt.BorderLayout;
 /*     */ import java.awt.Color;
+import java.awt.Dimension;
 /*     */ import java.awt.Font;
 /*     */ import java.awt.GridLayout;
 /*     */ import java.awt.event.ActionEvent;
@@ -49,14 +50,11 @@
 /*     */   
 /*     */   private JLabel lblDatabaseStatus;
 /*     */   private JMenuBar menuBar;
+			private ImagePanel panel;
 /*     */   
 /*     */   TimeCardSU() {
 /*  77 */     this.frameStanford = new JFrame();
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */     
+    
 /*  83 */     this.menuBar = new JMenuBar();
 /*  84 */     this.menuBar.setLayout(new BorderLayout());
 /*  85 */     this.menuBar.setFont(new Font("Segoe UI", 1, 12));
@@ -199,8 +197,8 @@
 /*     */     
 /* 224 */     this.frameStanford.setResizable(false);
 /* 225 */     this.frameStanford.setTitle("STANFORD'S PAYROLL ");
-/* 226 */     this.frameStanford.getContentPane().setLayout(new GridLayout(3, 1));
-/* 227 */     this.frameStanford.setSize(600, 700);
+/* 226 */     this.frameStanford.getContentPane().setLayout(new GridLayout(2, 1));
+/* 227 */    // this.frameStanford.setSize(450, 460);//x,y
 /* 228 */     this.frameStanford.setJMenuBar(this.menuBar);
 /*     */     
 /* 230 */     setupMainFrameDisplay();
@@ -215,6 +213,8 @@
 			private JMenuItem reformatDate;
 			private JMenuItem reconnectToDatabase; 
 			private static final long serialVersionUID = 1L;
+			 private final String BACKGROUND_PIC = "mesep_alt.jpg";
+			
 /*     */   private void setupMainFrameDisplay() {
 /* 235 */     this.databaseStatus = sqlSignonCredential();
 /*     */     
@@ -228,21 +228,38 @@
 /*     */     
 /*     */     try {
 /* 246 */       this.timePanel = new TimePanel(this.mySQLDatabase, this.databaseStatus);
-/* 247 */       this.payrollQueryPanel = new PayrollQueryPanel(this.mySQLDatabase, this.databaseStatus);
+				this.timePanel.setPreferredSize(new Dimension(450, 250)); 
+				this.panel = new ImagePanel(BACKGROUND_PIC);
+				this.panel.setPreferredSize(new Dimension(450, 250)); 
+				
+				//this.picturePanel = new PicturePanel();
+				//this.picturePanel.setPreferredSize(new Dimension(450, 100)); 
+/* 247 */       //this.payrollQueryPanel = new PayrollQueryPanel(this.mySQLDatabase, this.databaseStatus);
 /* 248 */     } catch (IOException e) {
 /*     */       
 /* 250 */       e.printStackTrace();
 /*     */     } 
 /*     */     
-/* 253 */     this.picturePanel = new PicturePanel();
-/*     */     
+/* 253 */     
+              
+				
+/*     */     //this.panel = new ImagePanel(BACKGROUND_PIC);
 /* 255 */     this.frameStanford.getContentPane().add(this.timePanel);
-/* 256 */     this.frameStanford.getContentPane().add(this.picturePanel);
-/* 257 */     this.frameStanford.getContentPane().add(this.payrollQueryPanel);
-/* 258 */     this.frameStanford.setDefaultCloseOperation(3);
-/* 259 */     this.frameStanford.setVisible(true);
-/*     */     
-/* 261 */     this.frameStanford.validate();
+/* 256 */     this.frameStanford.getContentPane().add(this.panel);
+			//this.frameStanford.getContentPane().add(this.timePanel);
+
+			// this.frameStanford.getContentPane().add(this.picturePanel);
+			
+			 
+/* 257 */    // this.frameStanford.getContentPane().add(this.payrollQueryPanel);
+/* 258 */  
+/* 259 */   
+			  this.frameStanford.setResizable(false);
+			  this.frameStanford.pack();
+			    this.frameStanford.setVisible(true);
+			    
+			       this.frameStanford.setDefaultCloseOperation(3);
+/* 261 */     //this.frameStanford.validate();
 /*     */   }
 /*     */ 
 /*     */ 

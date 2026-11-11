@@ -1,6 +1,7 @@
 /*     */ package com.StanfordTimeCard.StanfordTimeCard;
 /*     */ 
 /*     */ import java.awt.BorderLayout;
+import java.awt.Color;
 /*     */ import java.awt.Dimension;
 /*     */ import java.awt.Graphics;
 /*     */ import java.awt.Graphics2D;
@@ -13,31 +14,7 @@
 /*     */ import javax.swing.JFrame;
 /*     */ import javax.swing.JOptionPane;
 /*     */ import javax.swing.JPanel;
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
+
 /*     */ 
 /*     */ public class PicturePanel
 /*     */   extends JPanel
@@ -51,32 +28,29 @@
 /*     */   
 /*     */   public PicturePanel() {
 /*     */     try {
+	            setBackground(Color.RED);
 /*  53 */       setBackground(ImageIO.read(new File("mesep_alt.jpg")));
 /*  54 */     } catch (IOException e1) {
 /*     */       
 /*  56 */       JOptionPane.showMessageDialog(null, "Page Load Fault: Can not find background image");
 /*     */     } 
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
+
 /*     */   public static void main(String[] args) {
+
+	
 /*  64 */     JFrame frame = new JFrame();
 /*     */     
 /*  66 */     frame.setTitle("Home Improvement Tasks Completed");
-/*  67 */     frame.getContentPane().setLayout(new BorderLayout());
+/*  67 */     //frame.getContentPane().setLayout(new BorderLayout());
 /*  68 */     frame.getContentPane().add(new PicturePanel());
 /*  69 */     frame.pack();
 /*  70 */     frame.setVisible(true);
-/*  71 */     frame.setResizable(true);
+/*  71 */     frame.setResizable(false);
+
+
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
+
 /*     */   public Dimension getPreferredSize() {
 /*  80 */     return (this.img == null) ? super.getPreferredSize() : new Dimension(this.img.getWidth(), this.img.getHeight());
 /*     */   }
@@ -114,9 +88,7 @@
 /*     */     
 /* 114 */     return getScaledInstance(img, scaleFactor);
 /*     */   }
-/*     */ 
-/*     */ 
-/*     */   
+ 
 /*     */   public static double getScaleFactorToFill(BufferedImage img, Dimension size) {
 /* 120 */     double dScale = 1.0D;
 /*     */     
@@ -166,11 +138,7 @@
 /* 165 */     return imgScale;
 /*     */   }
 /*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
+
 /*     */   protected static BufferedImage getScaledDownInstance(BufferedImage img, int targetWidth, int targetHeight, Object hint, boolean higherQuality) {
 /* 174 */     int type = (img.getTransparency() == 1) ? 
 /* 175 */       1 : 2;
@@ -178,10 +146,7 @@
 /* 177 */     BufferedImage ret = img;
 /* 178 */     if (targetHeight > 0 || targetWidth > 0) {
 /*     */       int w; int h;
-/* 180 */       if (higherQuality) {
-/*     */ 
-/*     */ 
-/*     */         
+/* 180 */       if (higherQuality) {     
 /* 184 */         w = img.getWidth();
 /* 185 */         h = img.getHeight();
 /*     */       }
@@ -220,20 +185,13 @@
 /* 219 */     return ret;
 /*     */   }
 /*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */   
+
 /*     */   protected static BufferedImage getScaledUpInstance(BufferedImage img, int targetWidth, int targetHeight, Object hint, boolean higherQuality) {
 /* 228 */     int w, h, type = 2;
 /*     */     
 /* 230 */     BufferedImage ret = img;
 /*     */     
 /* 232 */     if (higherQuality) {
-/*     */ 
-/*     */ 
-/*     */       
 /* 236 */       w = img.getWidth();
 /* 237 */       h = img.getHeight();
 /*     */     }
