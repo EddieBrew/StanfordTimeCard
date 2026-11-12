@@ -119,10 +119,10 @@ public class QueryPanel extends JPanel {
         add(dayFilter);
         add(new JLabel("Ename:"));
         add(eventFilter);
-        add(new JLabel("RegHours"));
-        add(regHoursField);
-        add(new JLabel("OtHours"));
-        add(otHoursField);
+        //add(new JLabel("RegHours"));
+       // add(regHoursField);
+        //add(new JLabel("OtHours"));
+        //add(otHoursField);
         add(searchBtn);
         add(clearBtn);
     }

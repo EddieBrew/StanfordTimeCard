@@ -88,7 +88,7 @@ public class QueryFilterTable extends JFrame {
         setupSummaryTableRenderer();
 
         JPanel summaryPanel = new JPanel(new BorderLayout());
-        summaryPanel.add(new JLabel("  Summary by Room"), BorderLayout.NORTH);
+        summaryPanel.add(new JLabel("  Summary by Hours"), BorderLayout.NORTH);
         summaryPanel.add(new JScrollPane(summaryTable), BorderLayout.CENTER);
         summaryPanel.setPreferredSize(new Dimension(300, 0)); // fixed width
 
@@ -276,8 +276,8 @@ public class QueryFilterTable extends JFrame {
         double grandReg = 0.0;
         double grandOT = 0.0;
         double grandTotal = 0.0;
-        System.out.println("Summary SQL: " + sql);
-        System.out.println("Summary Params: " + wc.params());
+        //System.out.println("Summary SQL: " + sql);
+        //System.out.println("Summary Params: " + wc.params());
         try (PreparedStatement ps = db.get().prepareStatement(sql)) {
             List<Object> params = wc.params();
             for (int i = 0; i < params.size(); i++) ps.setObject(i + 1, params.get(i));
