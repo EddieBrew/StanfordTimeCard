@@ -69,7 +69,7 @@ public class QueryFilterTable extends JFrame {
         db.testOrExit(null);
 
         // Build the summary table
-        summaryModel = new DefaultTableModel(new String[]{"REGHOURS", "TOTAL HOURS"}, 0) {
+        summaryModel = new DefaultTableModel(new String[]{"REGHOURS","OTHOURS",  "TOTAL HOURS"}, 0) {
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -90,7 +90,7 @@ public class QueryFilterTable extends JFrame {
         JPanel summaryPanel = new JPanel(new BorderLayout());
         summaryPanel.add(new JLabel("  Summary by Room"), BorderLayout.NORTH);
         summaryPanel.add(new JScrollPane(summaryTable), BorderLayout.CENTER);
-        summaryPanel.setPreferredSize(new Dimension(220, 0)); // fixed width
+        summaryPanel.setPreferredSize(new Dimension(300, 0)); // fixed width
 
         model = new SQLTableModel(
                 db,
@@ -263,47 +263,52 @@ public class QueryFilterTable extends JFrame {
                 "Cost Breakdown", JOptionPane.INFORMATION_MESSAGE);
 
     }
-
+    
+   
     private void updateSummary() {
-        summaryModel.setRowCount(0);
+        summaryModel.setRowCount(0);   // ← clear rows only, don't touch columns
 
         QueryPanel.WhereClause wc = queryPanel.buildWhere();
-        String sql = "SELECT REGHOURS, SUM(REGHOURS) as total FROM dailyhours WHERE 1=1 "
-                + wc.fragment();
+        String sql = "SELECT `DATE`, SUM(REGHOURS) as total_reg, SUM(OTHOURS) as total_ot " +
+                     "FROM "+ TIMECARD_DATABASE +   " WHERE 1=1 " + 
+                     wc.fragment() + " GROUP BY `DATE` ORDER BY `DATE` DESC";
 
+        double grandReg = 0.0;
+        double grandOT = 0.0;
         double grandTotal = 0.0;
-
+        System.out.println("Summary SQL: " + sql);
+        System.out.println("Summary Params: " + wc.params());
         try (PreparedStatement ps = db.get().prepareStatement(sql)) {
             List<Object> params = wc.params();
-            for (int i = 0; i < params.size(); i++) {
-                ps.setObject(i + 1, params.get(i));
-            }
-
+            for (int i = 0; i < params.size(); i++) ps.setObject(i + 1, params.get(i));
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    String reghours = rs.getString("REGHOURS");
-                    if (reghours == null || reghours.isBlank()) {
-                        reghours = "Unassigned";
-                    }
-                    java.math.BigDecimal sum = rs.getBigDecimal("total");
+                    java.math.BigDecimal reg = rs.getBigDecimal("total_reg");
+                    java.math.BigDecimal ot  = rs.getBigDecimal("total_ot");
+                    if (reg == null) reg = java.math.BigDecimal.ZERO;
+                    if (ot  == null) ot  = java.math.BigDecimal.ZERO;
+                    java.math.BigDecimal dailyTotal = reg.add(ot);
 
-                    summaryModel.addRow(new Object[]{reghours, sum});
+                    summaryModel.addRow(new Object[]{ reg, ot, dailyTotal });
 
-                    // Add to our running total
-                    if (sum != null) {
-                        grandTotal += sum.doubleValue();
-                    }
+                    grandReg   += reg.doubleValue();
+                    grandOT    += ot.doubleValue();
+                    grandTotal += dailyTotal.doubleValue();
                 }
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
-        // Add the final TOTAL row
         if (summaryModel.getRowCount() > 0) {
-            summaryModel.addRow(new Object[]{"TOTAL", new java.math.BigDecimal(grandTotal)});
+            summaryModel.addRow(new Object[]{
+                new java.math.BigDecimal(grandReg),
+                new java.math.BigDecimal(grandOT),
+                new java.math.BigDecimal(grandTotal)
+            });
         }
     }
+    
 
     private double getRegHoursTotal() {
         double total = 0.0;
@@ -329,39 +334,39 @@ public class QueryFilterTable extends JFrame {
     }
 
     private void setupSummaryTableRenderer() {
-        // Create a renderer for numbers
         DefaultTableCellRenderer renderer = new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable table, Object value,
                     boolean isSelected, boolean hasFocus, int row, int column) {
-
-                // Let the default renderer handle the background/selection colors
-                Component c = super.getTableCellRendererComponent(table, value,
+                
+                Component c = super.getTableCellRendererComponent(table, value, 
                         isSelected, hasFocus, row, column);
-
-                // If this is the "Total Cost" column (index 1) and it's a number
-                if (column == 1 && value instanceof Number) {
+                
+                // Format numbers to 2 decimal places
+                if (value instanceof Number) {
                     double amount = ((Number) value).doubleValue();
-                    setText(String.format("%,.2f", amount));
-                    setHorizontalAlignment(SwingConstants.RIGHT); // Right-align for money
+                    setText(String.format("%.2f", amount)); 
+                    setHorizontalAlignment(SwingConstants.RIGHT);
                 } else {
                     setText(value == null ? "" : value.toString());
                     setHorizontalAlignment(SwingConstants.LEFT);
                 }
-
-                // Bold the TOTAL row
-                if (table.getValueAt(row, 0) != null && "TOTAL".equals(table.getValueAt(row, 0).toString())) {
+                
+                // Bold the very last row (the grand total)
+                if (row == table.getRowCount() - 1) {
                     setFont(getFont().deriveFont(Font.BOLD));
                 } else {
                     setFont(getFont().deriveFont(Font.PLAIN));
                 }
-
+                
                 return c;
             }
         };
-
-        // Apply the renderer to the "Total Cost" column (index 1)
+        
+        // Apply to all THREE columns (0, 1, and 2)
+        summaryTable.getColumnModel().getColumn(0).setCellRenderer(renderer);
         summaryTable.getColumnModel().getColumn(1).setCellRenderer(renderer);
+        summaryTable.getColumnModel().getColumn(2).setCellRenderer(renderer);
     }
 
     public static void main(String[] args) {
