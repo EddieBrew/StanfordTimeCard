@@ -1,5 +1,7 @@
 { 
  "homeData" :[ 
+{"dateInt":20261111,"day":"WED","date":"2026-11-11","eventNumber":16418,"eventName":"SPARK HUJ Bootcamp","time":"1230-1720","rhours":4.833333333333333,"ohours":0.0}
+{"dateInt":20261110,"day":"TUE","date":"2026-11-10","eventNumber":16418,"eventName":"SPARK HUJ BootCamp","time":"1300-1650","rhours":3.8333333333333335,"ohours":0.0}
 {"dateInt":20261109,"day":"MON","date":"2026-11-09","eventNumber":16422,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20261108,"day":"SUN","date":"2026-11-08","eventNumber":16567,"eventName":"Men Soccer vs Syracuse","time":"1300-1750","rhours":4.83333,"ohours":0.0}
 {"dateInt":20261104,"day":"WED","date":"2026-11-04","eventNumber":16576,"eventName":"Rho Kanna","time":"1500-1810","rhours":3.16667,"ohours":0.0}
@@ -42,14 +44,14 @@
 {"dateInt":20260703,"day":"FRI","date":"2026-07-03","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20260702,"day":"THU","date":"2026-07-02","eventNumber":15994,"eventName":"Campus Security","time":"630-1100","rhours":4.5,"ohours":0.0}
 {"dateInt":20260625,"day":"THU","date":"2026-06-25","eventNumber":15685,"eventName":"Hillel","time":"1030-1500","rhours":4.5,"ohours":0.0}
-{"dateInt":20260624,"day":"WED","date":"2026-06-24","eventNumber":16336,"eventName":"Real World AI Security Conference","time":"1230-1710","rhours":3.5,"ohours":1.16667}
 {"dateInt":20260624,"day":"WED","date":"2026-06-24","eventNumber":15685,"eventName":"Hillel","time":"630-1100","rhours":4.5,"ohours":0.0}
+{"dateInt":20260624,"day":"WED","date":"2026-06-24","eventNumber":16336,"eventName":"Real World AI Security Conference","time":"1230-1710","rhours":3.5,"ohours":1.16667}
 {"dateInt":20260623,"day":"TUE","date":"2026-06-23","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20260620,"day":"SAT","date":"2026-06-20","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20260619,"day":"FRI","date":"2026-06-19","eventNumber":15674,"eventName":"Foothills","time":"1300-2030","rhours":7.0,"ohours":0.0}
 {"dateInt":20260614,"day":"SUN","date":"2026-06-14","eventNumber":16147,"eventName":"Commencement-Golf Carts","time":"930-1640","rhours":6.66667,"ohours":0.0}
-{"dateInt":20260613,"day":"SAT","date":"2026-06-13","eventNumber":0,"eventName":"Baccalauret-Rover","time":"1230-1700","rhours":1.83333,"ohours":2.66667}
 {"dateInt":20260613,"day":"SAT","date":"2026-06-13","eventNumber":16147,"eventName":"Baccalaureate at Frost","time":"530-1210","rhours":6.16667,"ohours":0.0}
+{"dateInt":20260613,"day":"SAT","date":"2026-06-13","eventNumber":0,"eventName":"Baccalauret-Rover","time":"1230-1700","rhours":1.83333,"ohours":2.66667}
 {"dateInt":20260612,"day":"FRI","date":"2026-06-12","eventNumber":15968,"eventName":"Bike Abatement","time":"900-1700","rhours":7.5,"ohours":0.0}
 {"dateInt":20260611,"day":"THU","date":"2026-06-11","eventNumber":15968,"eventName":"Bike Abatement","time":"900-1700","rhours":7.5,"ohours":0.0}
 {"dateInt":20260602,"day":"TUE","date":"2026-06-02","eventNumber":15994,"eventName":"Campus Security","time":"1030-1500","rhours":4.5,"ohours":0.0}
@@ -69,8 +71,8 @@
 {"dateInt":20260506,"day":"WED","date":"2026-05-06","eventNumber":15674,"eventName":"Foothills","time":"1300-2030","rhours":7.0,"ohours":0.0}
 {"dateInt":20260501,"day":"FRI","date":"2026-05-01","eventNumber":15994,"eventName":"Campus Security--Beat 3","time":"1430-1900","rhours":4.5,"ohours":0.0}
 {"dateInt":20260430,"day":"THU","date":"2026-04-30","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
-{"dateInt":20260429,"day":"WED","date":"2026-04-29","eventNumber":15994,"eventName":"Campus Security-Beat 3","time":"630-1100","rhours":4.5,"ohours":0.0}
 {"dateInt":20260429,"day":"WED","date":"2026-04-29","eventNumber":16194,"eventName":"Stanford Sustanabilty Forum","time":"1130-1615","rhours":3.5,"ohours":1.25}
+{"dateInt":20260429,"day":"WED","date":"2026-04-29","eventNumber":15994,"eventName":"Campus Security-Beat 3","time":"630-1100","rhours":4.5,"ohours":0.0}
 {"dateInt":20260415,"day":"WED","date":"2026-04-15","eventNumber":16149,"eventName":"Stanford Leadership Forum","time":"730-1300","rhours":5.0,"ohours":0.0}
 {"dateInt":20260414,"day":"TUE","date":"2026-04-14","eventNumber":16182,"eventName":"Bio Strategy  Conference","time":"800-1400","rhours":5.5,"ohours":0.0}
 {"dateInt":20260411,"day":"SAT","date":"2026-04-11","eventNumber":16154,"eventName":"Stanford Splash","time":"800-1800","rhours":8.0,"ohours":1.5}
@@ -89,14 +91,14 @@
 {"dateInt":20260227,"day":"FRI","date":"2026-02-27","eventNumber":15829,"eventName":"Family Weekend_Galvez/Memorial","time":"700-1200","rhours":5.0,"ohours":0.0}
 {"dateInt":20260226,"day":"THU","date":"2026-02-26","eventNumber":15685,"eventName":"Hillel","time":"630-1500","rhours":8.0,"ohours":0.0}
 {"dateInt":20260225,"day":"WED","date":"2026-02-25","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
-{"dateInt":20260220,"day":"FRI","date":"2026-02-20","eventNumber":15674,"eventName":"Sick Day- Foothills","time":"600-1300","rhours":3.5,"ohours":0.0}
 {"dateInt":20260220,"day":"FRI","date":"2026-02-20","eventNumber":16054,"eventName":"Town Hall--Bernie Sanders/Rho Kanna","time":"1330-1800","rhours":4.5,"ohours":0.0}
+{"dateInt":20260220,"day":"FRI","date":"2026-02-20","eventNumber":15674,"eventName":"Sick Day- Foothills","time":"600-1300","rhours":3.5,"ohours":0.0}
 {"dateInt":20260219,"day":"THU","date":"2026-02-19","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20260215,"day":"SUN","date":"2026-02-15","eventNumber":15900,"eventName":"TreeHack","time":"700-1700","rhours":8.0,"ohours":1.5}
 {"dateInt":20260214,"day":"SAT","date":"2026-02-14","eventNumber":15900,"eventName":"TreeHack","time":"600-1500","rhours":8.0,"ohours":0.5}
 {"dateInt":20260213,"day":"FRI","date":"2026-02-13","eventNumber":15900,"eventName":"TreeHack","time":"1230-2044","rhours":7.73,"ohours":0.0}
-{"dateInt":20260212,"day":"THU","date":"2026-02-12","eventNumber":15685,"eventName":"Hillel","time":"630-1100","rhours":4.5,"ohours":0.0}
 {"dateInt":20260212,"day":"THU","date":"2026-02-12","eventNumber":16057,"eventName":"Applied History Working Group Symposium","time":"1130-1400","rhours":2.5,"ohours":0.0}
+{"dateInt":20260212,"day":"THU","date":"2026-02-12","eventNumber":15685,"eventName":"Hillel","time":"630-1100","rhours":4.5,"ohours":0.0}
 {"dateInt":20260205,"day":"THU","date":"2026-02-05","eventNumber":15885,"eventName":"Hillel","time":"630-1100","rhours":4.5,"ohours":0.0}
 {"dateInt":20260204,"day":"WED","date":"2026-02-04","eventNumber":16033,"eventName":"Private Residences","time":"530-1400","rhours":8.0,"ohours":0.0}
 {"dateInt":20260203,"day":"TUE","date":"2026-02-03","eventNumber":15674,"eventName":"Foothills","time":"1300-1830","rhours":5.0,"ohours":0.0}
@@ -133,8 +135,8 @@
 {"dateInt":20251029,"day":"WED","date":"2025-10-29","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20251023,"day":"THU","date":"2025-10-23","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20251022,"day":"WED","date":"2025-10-22","eventNumber":15815,"eventName":"National Security Technology Conference","time":"730-1345","rhours":5.75,"ohours":0.0}
-{"dateInt":20251018,"day":"SAT","date":"2025-10-18","eventNumber":15653,"eventName":"Football vs Florida State","time":"1400-2000","rhours":5.5,"ohours":0.0}
 {"dateInt":20251018,"day":"SAT","date":"2025-10-18","eventNumber":0,"eventName":"Student Party","time":"2000-2345","rhours":2.5,"ohours":1.25}
+{"dateInt":20251018,"day":"SAT","date":"2025-10-18","eventNumber":15653,"eventName":"Football vs Florida State","time":"1400-2000","rhours":5.5,"ohours":0.0}
 {"dateInt":20251017,"day":"FRI","date":"2025-10-17","eventNumber":15763,"eventName":"Traffic Control-Memorial Way  RH","time":"630-1230","rhours":5.5,"ohours":0.0}
 {"dateInt":20251016,"day":"THU","date":"2025-10-16","eventNumber":15674,"eventName":"Foothills","time":"1300-1900","rhours":5.5,"ohours":0.0}
 {"dateInt":20251015,"day":"WED","date":"2025-10-15","eventNumber":15685,"eventName":"Hillel/Koret","time":"600-1045","rhours":4.75,"ohours":0.0}
@@ -146,8 +148,8 @@
 {"dateInt":20250927,"day":"SAT","date":"2025-09-27","eventNumber":0,"eventName":"Sick--Football vs San Jose","time":"1100-1930","rhours":8.0,"ohours":0.0}
 {"dateInt":20250926,"day":"FRI","date":"2025-09-26","eventNumber":15097,"eventName":"Sick--Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20250917,"day":"WED","date":"2025-09-17","eventNumber":15097,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
-{"dateInt":20250916,"day":"TUE","date":"2025-09-16","eventNumber":15688,"eventName":"NSO-Convocation/Provost Dinner","time":"1430-2030","rhours":4.5,"ohours":1.0}
 {"dateInt":20250916,"day":"TUE","date":"2025-09-16","eventNumber":15685,"eventName":"Hillel/Koret","time":"1100-1430","rhours":3.5,"ohours":0.0}
+{"dateInt":20250916,"day":"TUE","date":"2025-09-16","eventNumber":15688,"eventName":"NSO-Convocation/Provost Dinner","time":"1430-2030","rhours":4.5,"ohours":1.0}
 {"dateInt":20250913,"day":"SAT","date":"2025-09-13","eventNumber":15650,"eventName":"Football vs Boston College","time":"1430-2330","rhours":8.0,"ohours":0.5}
 {"dateInt":20250912,"day":"FRI","date":"2025-09-12","eventNumber":15097,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20250911,"day":"THU","date":"2025-09-11","eventNumber":15690,"eventName":"NSO Seedxling Banner","time":"500-1110","rhours":5.66667,"ohours":0.0}
@@ -200,8 +202,8 @@
 {"dateInt":20250404,"day":"FRI","date":"2025-04-04","eventNumber":15097,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20250330,"day":"SUN","date":"2025-03-30","eventNumber":15097,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20250329,"day":"SAT","date":"2025-03-29","eventNumber":15097,"eventName":"Foothills","time":"1300-1930","rhours":6.0,"ohours":0.0}
-{"dateInt":20250318,"day":"TUE","date":"2025-03-18","eventNumber":15099,"eventName":"Campus Security","time":"900-1600","rhours":6.5,"ohours":0.0}
 {"dateInt":20250318,"day":"TUE","date":"2025-03-18","eventNumber":15443,"eventName":"MBB vs CSUN","time":"1830-2240","rhours":1.5,"ohours":2.66667}
+{"dateInt":20250318,"day":"TUE","date":"2025-03-18","eventNumber":15099,"eventName":"Campus Security","time":"900-1600","rhours":6.5,"ohours":0.0}
 {"dateInt":20250317,"day":"MON","date":"2025-03-17","eventNumber":15097,"eventName":"Foothills","time":"1300-1930","rhours":6.0,"ohours":0.0}
 {"dateInt":20250316,"day":"SUN","date":"2025-03-16","eventNumber":15097,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20250311,"day":"TUE","date":"2025-03-11","eventNumber":15099,"eventName":"Campus Security","time":"900-1600","rhours":6.5,"ohours":0.0}
@@ -301,10 +303,10 @@
 {"dateInt":20240510,"day":"FRI","date":"2024-05-10","eventNumber":14881,"eventName":"Pow Wow Vendor Load In","time":"0700-1600","rhours":8.0,"ohours":0.5}
 {"dateInt":20240509,"day":"THU","date":"2024-05-09","eventNumber":14866,"eventName":"Bing Wing Book Move","time":"0930-1700","rhours":7.0,"ohours":0.0}
 {"dateInt":20240501,"day":"WED","date":"2024-05-01","eventNumber":14866,"eventName":"Bing Wing Book Move","time":"0930-1700","rhours":7.0,"ohours":0.0}
-{"dateInt":20240430,"day":"TUE","date":"2024-04-30","eventNumber":14897,"eventName":"Democracy abd Disagreement","time":"1400-1730","rhours":3.5,"ohours":0.0}
 {"dateInt":20240430,"day":"TUE","date":"2024-04-30","eventNumber":14192,"eventName":"Foothills","time":"1800-2030","rhours":2.5,"ohours":0.0}
-{"dateInt":20240420,"day":"SAT","date":"2024-04-20","eventNumber":14192,"eventName":"Foothills","time":"0600-1030","rhours":4.5,"ohours":0.0}
+{"dateInt":20240430,"day":"TUE","date":"2024-04-30","eventNumber":14897,"eventName":"Democracy abd Disagreement","time":"1400-1730","rhours":3.5,"ohours":0.0}
 {"dateInt":20240420,"day":"SAT","date":"2024-04-20","eventNumber":14775,"eventName":"FoothFootball Spring Showcase","time":"1100-1500","rhours":3.5,"ohours":0.5}
+{"dateInt":20240420,"day":"SAT","date":"2024-04-20","eventNumber":14192,"eventName":"Foothills","time":"0600-1030","rhours":4.5,"ohours":0.0}
 {"dateInt":20240419,"day":"FRI","date":"2024-04-19","eventNumber":14192,"eventName":"Foothills","time":"0600-0930","rhours":3.5,"ohours":0.0}
 {"dateInt":20240419,"day":"FRI","date":"2024-04-19","eventNumber":14866,"eventName":"Bing Wing Book Move","time":"0930-1700","rhours":4.5,"ohours":2.5}
 {"dateInt":20240418,"day":"THU","date":"2024-04-18","eventNumber":14866,"eventName":"Bing Wing Book Move","time":"0930-1700","rhours":7.0,"ohours":0.0}
@@ -449,8 +451,8 @@
 {"dateInt":20191121,"day":"THU","date":"2019-11-21","eventNumber":12870,"eventName":"MennBBvsWilliam&Mary","time":"1430-1830","rhours":4.0,"ohours":0.0}
 {"dateInt":20191120,"day":"WED","date":"2019-11-20","eventNumber":12895,"eventName":"BitaPrize","time":"1700-2100","rhours":4.0,"ohours":0.0}
 {"dateInt":20191119,"day":"TUE","date":"2019-11-19","eventNumber":12869,"eventName":"MenBBvsMarylandEasternShore","time":"1730-2130","rhours":4.0,"ohours":0.0}
-{"dateInt":20191117,"day":"SUN","date":"2019-11-17","eventNumber":12678,"eventName":"Foothills","time":"0600-1230","rhours":6.0,"ohours":0.0}
 {"dateInt":20191117,"day":"SUN","date":"2019-11-17","eventNumber":12918,"eventName":"VolleyBall","time":"1230-1415","rhours":1.75,"ohours":0.0}
+{"dateInt":20191117,"day":"SUN","date":"2019-11-17","eventNumber":12678,"eventName":"Foothills","time":"0600-1230","rhours":6.0,"ohours":0.0}
 {"dateInt":20191115,"day":"FRI","date":"2019-11-15","eventNumber":12678,"eventName":"Foothills","time":"1430-1830","rhours":4.0,"ohours":0.0}
 {"dateInt":20191114,"day":"THU","date":"2019-11-14","eventNumber":12849,"eventName":"WomenBBvsNorthernColorado","time":"1730-2115","rhours":3.75,"ohours":0.0}
 {"dateInt":20191113,"day":"WED","date":"2019-11-13","eventNumber":12923,"eventName":"Bing-MozartMusing","time":"1800-2200","rhours":4.0,"ohours":0.0}
@@ -523,8 +525,8 @@
 {"dateInt":20190702,"day":"TUE","date":"2019-07-02","eventNumber":12559,"eventName":"ID Tech","time":"1630-1800","rhours":1.5,"ohours":0.0}
 {"dateInt":20190702,"day":"TUE","date":"2019-07-02","eventNumber":12032,"eventName":"Foothills","time":"1800-2100","rhours":3.0,"ohours":0.0}
 {"dateInt":20190630,"day":"SUN","date":"2019-06-30","eventNumber":12032,"eventName":"Foothills","time":"0530-1230","rhours":6.5,"ohours":0.0}
-{"dateInt":20190625,"day":"TUE","date":"2019-06-25","eventNumber":12559,"eventName":"ID Tech","time":"1630-1800","rhours":1.5,"ohours":0.0}
 {"dateInt":20190625,"day":"TUE","date":"2019-06-25","eventNumber":12032,"eventName":"Foothills","time":"1800-2100","rhours":3.0,"ohours":0.0}
+{"dateInt":20190625,"day":"TUE","date":"2019-06-25","eventNumber":12559,"eventName":"ID Tech","time":"1630-1800","rhours":1.5,"ohours":0.0}
 {"dateInt":20190624,"day":"MON","date":"2019-06-24","eventNumber":12559,"eventName":"ID Tech","time":"1630-1800","rhours":1.5,"ohours":0.0}
 {"dateInt":20190624,"day":"MON","date":"2019-06-24","eventNumber":12032,"eventName":"Foothilld","time":"1800-2100","rhours":3.0,"ohours":0.0}
 {"dateInt":20190623,"day":"SUN","date":"2019-06-23","eventNumber":12032,"eventName":"Foothilld","time":"1600-2100","rhours":5.0,"ohours":0.0}
@@ -533,8 +535,8 @@
 {"dateInt":20190619,"day":"WED","date":"2019-06-19","eventNumber":12032,"eventName":"Foothills","time":"1700-2100","rhours":4.0,"ohours":0.0}
 {"dateInt":20190618,"day":"TUE","date":"2019-06-18","eventNumber":12032,"eventName":"Foothills","time":"1700-2100","rhours":4.0,"ohours":0.0}
 {"dateInt":20190615,"day":"SAT","date":"2019-06-15","eventNumber":12892,"eventName":"Comm Stadium Security","time":"1630-0000","rhours":7.0,"ohours":0.0}
-{"dateInt":20190614,"day":"FRI","date":"2019-06-14","eventNumber":12037,"eventName":"Vaden Pharmacy","time":"1600-1800","rhours":2.0,"ohours":0.0}
 {"dateInt":20190614,"day":"FRI","date":"2019-06-14","eventNumber":12032,"eventName":"Foothills","time":"1800-2100","rhours":3.0,"ohours":0.0}
+{"dateInt":20190614,"day":"FRI","date":"2019-06-14","eventNumber":12037,"eventName":"Vaden Pharmacy","time":"1600-1800","rhours":2.0,"ohours":0.0}
 {"dateInt":20190612,"day":"WED","date":"2019-06-12","eventNumber":12032,"eventName":"Foothills","time":"1700-2100","rhours":4.0,"ohours":0.0}
 {"dateInt":20190611,"day":"TUE","date":"2019-06-11","eventNumber":12592,"eventName":"Comm Stadium Security","time":"1630-0000","rhours":7.0,"ohours":0.0}
 {"dateInt":20190608,"day":"SAT","date":"2019-06-08","eventNumber":12031,"eventName":"Foothills","time":"0530-1230","rhours":6.5,"ohours":0.0}
@@ -546,10 +548,10 @@
 {"dateInt":20190529,"day":"WED","date":"2019-05-29","eventNumber":12032,"eventName":"Foothills","time":"1700-2100","rhours":4.0,"ohours":0.0}
 {"dateInt":20190527,"day":"MON","date":"2019-05-27","eventNumber":12032,"eventName":"Foothill","time":"0530-1230","rhours":6.5,"ohours":0.0}
 {"dateInt":20190525,"day":"SAT","date":"2019-05-25","eventNumber":12032,"eventName":"Foothills","time":"0530-1230","rhours":6.5,"ohours":0.0}
-{"dateInt":20190524,"day":"FRI","date":"2019-05-24","eventNumber":12032,"eventName":"Foothills","time":"1800-2100","rhours":3.0,"ohours":0.0}
 {"dateInt":20190524,"day":"FRI","date":"2019-05-24","eventNumber":12037,"eventName":"VadenPharmacy","time":"1600-1800","rhours":2.0,"ohours":0.0}
-{"dateInt":20190522,"day":"WED","date":"2019-05-22","eventNumber":12584,"eventName":"GenderEquality","time":"1530-1900","rhours":3.5,"ohours":0.0}
+{"dateInt":20190524,"day":"FRI","date":"2019-05-24","eventNumber":12032,"eventName":"Foothills","time":"1800-2100","rhours":3.0,"ohours":0.0}
 {"dateInt":20190522,"day":"WED","date":"2019-05-22","eventNumber":12032,"eventName":"Foothills","time":"1930-2100","rhours":1.5,"ohours":0.0}
+{"dateInt":20190522,"day":"WED","date":"2019-05-22","eventNumber":12584,"eventName":"GenderEquality","time":"1530-1900","rhours":3.5,"ohours":0.0}
 {"dateInt":20190521,"day":"TUE","date":"2019-05-21","eventNumber":12032,"eventName":"Foothills","time":"1700-2100","rhours":4.0,"ohours":0.0}
 {"dateInt":20190518,"day":"SAT","date":"2019-05-18","eventNumber":12446,"eventName":"Frost-Concert","time":"1500-2300","rhours":7.5,"ohours":0.0}
 {"dateInt":20190517,"day":"FRI","date":"2019-05-17","eventNumber":12547,"eventName":"GradFormalParty","time":"1900-0045","rhours":5.25,"ohours":0.0}
@@ -569,8 +571,8 @@
 {"dateInt":20190424,"day":"WED","date":"2019-04-24","eventNumber":12032,"eventName":"Foothills","time":"1700-2100","rhours":4.0,"ohours":0.0}
 {"dateInt":20190423,"day":"TUE","date":"2019-04-23","eventNumber":12032,"eventName":"Foothills","time":"1700-2100","rhours":4.0,"ohours":0.0}
 {"dateInt":20190420,"day":"SAT","date":"2019-04-20","eventNumber":12477,"eventName":"Philipinx Cultural Night","time":"1830-2230","rhours":4.0,"ohours":0.0}
-{"dateInt":20190419,"day":"FRI","date":"2019-04-19","eventNumber":12032,"eventName":"Foothills","time":"1800-2100","rhours":3.0,"ohours":0.0}
 {"dateInt":20190419,"day":"FRI","date":"2019-04-19","eventNumber":12037,"eventName":"VadenPharmacy","time":"1600-1800","rhours":2.0,"ohours":0.0}
+{"dateInt":20190419,"day":"FRI","date":"2019-04-19","eventNumber":12032,"eventName":"Foothills","time":"1800-2100","rhours":3.0,"ohours":0.0}
 {"dateInt":20190418,"day":"THU","date":"2019-04-18","eventNumber":12032,"eventName":"Foothills","time":"1700-2100","rhours":4.0,"ohours":0.0}
 {"dateInt":20190417,"day":"WED","date":"2019-04-17","eventNumber":12032,"eventName":"Foothills","time":"1700-2100","rhours":4.0,"ohours":0.0}
 {"dateInt":20190413,"day":"SAT","date":"2019-04-13","eventNumber":12428,"eventName":"GSB- C4C-BattleOfBand","time":"1830-0200","rhours":7.0,"ohours":0.0}
@@ -600,8 +602,8 @@
 {"dateInt":20190310,"day":"SUN","date":"2019-03-10","eventNumber":12032,"eventName":"Foothills","time":"1600-2000","rhours":4.0,"ohours":0.0}
 {"dateInt":20190307,"day":"THU","date":"2019-03-07","eventNumber":0,"eventName":"Sick Day","time":"1830-2230","rhours":4.0,"ohours":0.0}
 {"dateInt":20190306,"day":"WED","date":"2019-03-06","eventNumber":12399,"eventName":"GSE Cubberley","time":"1600-2000","rhours":4.0,"ohours":0.0}
-{"dateInt":20190303,"day":"SUN","date":"2019-03-03","eventNumber":12032,"eventName":"Foorhills","time":"1600-2000","rhours":2.0,"ohours":2.0}
 {"dateInt":20190303,"day":"SUN","date":"2019-03-03","eventNumber":12186,"eventName":"MenBBvsWashington","time":"0930-1600","rhours":6.0,"ohours":0.0}
+{"dateInt":20190303,"day":"SUN","date":"2019-03-03","eventNumber":12032,"eventName":"Foorhills","time":"1600-2000","rhours":2.0,"ohours":2.0}
 {"dateInt":20190302,"day":"SAT","date":"2019-03-02","eventNumber":12032,"eventName":"Foothilks","time":"0530-1230","rhours":6.5,"ohours":0.0}
 {"dateInt":20190228,"day":"THU","date":"2019-02-28","eventNumber":12185,"eventName":"MenBBvsWashingtonState","time":"1630-2030","rhours":4.0,"ohours":0.0}
 {"dateInt":20190223,"day":"SAT","date":"2019-02-23","eventNumber":12032,"eventName":"Foothills","time":"1330-1900","rhours":5.0,"ohours":0.0}
@@ -643,8 +645,8 @@
 {"dateInt":20181221,"day":"FRI","date":"2018-12-21","eventNumber":12210,"eventName":"WBSecurity","time":"1430-2300","rhours":8.0,"ohours":0.0}
 {"dateInt":20181218,"day":"TUE","date":"2018-12-18","eventNumber":12167,"eventName":"MenBBvsSJSU","time":"1730-2130","rhours":4.0,"ohours":0.0}
 {"dateInt":20181215,"day":"SAT","date":"2018-12-15","eventNumber":12165,"eventName":"MenBBvsEasternWashington","time":"1400-1830","rhours":4.5,"ohours":0.0}
-{"dateInt":20181214,"day":"FRI","date":"2018-12-14","eventNumber":12273,"eventName":"BingConcert-DianneReevee","time":"1830-2215","rhours":3.75,"ohours":0.0}
 {"dateInt":20181214,"day":"FRI","date":"2018-12-14","eventNumber":12037,"eventName":"VadenPharmacy","time":"1600-1800","rhours":2.0,"ohours":0.0}
+{"dateInt":20181214,"day":"FRI","date":"2018-12-14","eventNumber":12273,"eventName":"BingConcert-DianneReevee","time":"1830-2215","rhours":3.75,"ohours":0.0}
 {"dateInt":20181209,"day":"SUN","date":"2018-12-09","eventNumber":12032,"eventName":"Foothills","time":"0600-1230","rhours":6.0,"ohours":0.0}
 {"dateInt":20181208,"day":"SAT","date":"2018-12-08","eventNumber":12032,"eventName":"Foothills","time":"0600-1230","rhours":6.0,"ohours":0.0}
 {"dateInt":20181207,"day":"FRI","date":"2018-12-07","eventNumber":12032,"eventName":"Foothills","time":"1400-1830","rhours":4.5,"ohours":0.0}
@@ -717,8 +719,8 @@
 {"dateInt":20180729,"day":"SUN","date":"2018-07-29","eventNumber":11258,"eventName":"Foothills","time":"0530-1330","rhours":7.5,"ohours":0.0}
 {"dateInt":20180728,"day":"SAT","date":"2018-07-28","eventNumber":11999,"eventName":"EnvironmentalHabitat","time":"0530-1330","rhours":7.5,"ohours":0.0}
 {"dateInt":20180725,"day":"WED","date":"2018-07-25","eventNumber":11258,"eventName":"Foothills","time":"1800-2100","rhours":3.0,"ohours":0.0}
-{"dateInt":20180724,"day":"TUE","date":"2018-07-24","eventNumber":11258,"eventName":"Foothills","time":"1800-2100","rhours":3.0,"ohours":0.0}
 {"dateInt":20180724,"day":"TUE","date":"2018-07-24","eventNumber":11959,"eventName":"IDTECH","time":"1630-1800","rhours":1.5,"ohours":0.0}
+{"dateInt":20180724,"day":"TUE","date":"2018-07-24","eventNumber":11258,"eventName":"Foothills","time":"1800-2100","rhours":3.0,"ohours":0.0}
 {"dateInt":20180723,"day":"MON","date":"2018-07-23","eventNumber":11258,"eventName":"Foothills","time":"1800-2100","rhours":3.0,"ohours":0.0}
 {"dateInt":20180723,"day":"MON","date":"2018-07-23","eventNumber":11959,"eventName":"IDTECH","time":"1630-1800","rhours":1.5,"ohours":0.0}
 {"dateInt":20180719,"day":"THU","date":"2018-07-19","eventNumber":11258,"eventName":"Foothills","time":"1700-2100","rhours":4.0,"ohours":0.0}
@@ -740,8 +742,8 @@
 {"dateInt":20180513,"day":"SUN","date":"2018-05-13","eventNumber":11815,"eventName":"PowWow","time":"0730-1400","rhours":6.5,"ohours":0.0}
 {"dateInt":20180512,"day":"SAT","date":"2018-05-12","eventNumber":11815,"eventName":"PowWow","time":"0720-1600","rhours":8.0,"ohours":0.67}
 {"dateInt":20180506,"day":"SUN","date":"2018-05-06","eventNumber":11258,"eventName":"FoothillOpening","time":"0530-1230","rhours":6.5,"ohours":0.0}
-{"dateInt":20180504,"day":"FRI","date":"2018-05-04","eventNumber":11258,"eventName":"FoothillClosing","time":"1800-2100","rhours":3.0,"ohours":0.0}
 {"dateInt":20180504,"day":"FRI","date":"2018-05-04","eventNumber":11259,"eventName":"VadenPharmacy","time":"1600-1800","rhours":2.0,"ohours":0.0}
+{"dateInt":20180504,"day":"FRI","date":"2018-05-04","eventNumber":11258,"eventName":"FoothillClosing","time":"1800-2100","rhours":3.0,"ohours":0.0}
 {"dateInt":20180503,"day":"THU","date":"2018-05-03","eventNumber":11258,"eventName":"FoothillClosing","time":"1700-2100","rhours":4.0,"ohours":0.0}
 {"dateInt":20180430,"day":"MON","date":"2018-04-30","eventNumber":11258,"eventName":"FoothillClosing","time":"1700-2100","rhours":4.0,"ohours":0.0}
 {"dateInt":20180429,"day":"SUN","date":"2018-04-29","eventNumber":11258,"eventName":"FoothillsOpening","time":"0530-1230","rhours":6.5,"ohours":0.0}
