@@ -165,13 +165,13 @@ public class QueryPanel extends JPanel {
 
         String day = (String) dayFilter.getSelectedItem();
         if (day != null && !day.isBlank()) {
-            w.append(" AND AREA = ? ");
+            w.append(" AND DAY = ? ");
             params.add(day);
         }
 
         String eventname = (String) eventFilter.getSelectedItem();
         if (eventname != null && !eventname.isBlank()) {
-            w.append(" AND ITEMS = ? ");
+            w.append(" AND EVENTNAME = ? ");
             params.add(eventname);
         }
 

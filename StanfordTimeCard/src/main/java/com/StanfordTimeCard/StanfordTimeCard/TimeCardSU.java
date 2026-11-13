@@ -327,6 +327,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /* 303 */       this.mySQLDatabase.getQuery(query);
 /* 304 */       List<DailyInfoModel> myList = this.mySQLDatabase.getList();
 /* 305 */       Collections.sort(myList, new SortDailyInfoModelInDescendingOrderByDate());
+				fixMyDate(myList);
+
 /* 306 */        if (replaceDataInFile(myList, INPUTFILE)) {
 				    BackupFilesToComputer();
 				    JOptionPane.showMessageDialog(null, "SUCCESS: Data Downloaded to File and Backed Up to Computer");			
@@ -798,6 +800,37 @@ public static File getCsvOutputFile() throws IOException {
    
     return targetAddress.toFile();
 }
+
+
+ private void fixMyDate(List<DailyInfoModel> myList) {
+	 for(int i = 0; i < myList.size(); i++) {
+		 
+		 
+		String newDate = fixDateString(myList.get(i).getDate());
+		myList.get(i).setDate(newDate); 
+		System.out.println(newDate); // Output: 2016-01-12
+		//      	      
+	 }	 
+ }
+ 
+ 
+ public static String fixDateString(String badDate) {
+     // 1. Split the string into [year, month, day]
+     String[] parts = badDate.split("-");
+     
+     if (parts.length != 3) {
+         return badDate; // Return original if it's not a valid 3-part date
+     }
+     
+     // 2. Parse into integers (this automatically destroys all leading zeros)
+     int year = Integer.parseInt(parts[0]);
+     int month = Integer.parseInt(parts[1]);
+     int day = Integer.parseInt(parts[2]);
+     
+     // 3. Format back. %02d forces exactly 2 digits (adds a single zero if it's a single digit)
+     return String.format("%04d-%02d-%02d", year, month, day);
+ }
+
 
 /*     */ }
 

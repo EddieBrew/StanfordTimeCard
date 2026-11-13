@@ -1,7 +1,7 @@
 { 
  "homeData" :[ 
-{"dateInt":20261111,"day":"WED","date":"2026-11-11","eventNumber":16418,"eventName":"SPARK HUJ Bootcamp","time":"1230-1720","rhours":4.833333333333333,"ohours":0.0}
-{"dateInt":20261110,"day":"TUE","date":"2026-11-10","eventNumber":16418,"eventName":"SPARK HUJ BootCamp","time":"1300-1650","rhours":3.8333333333333335,"ohours":0.0}
+{"dateInt":20261111,"day":"WED","date":"2026-11-11","eventNumber":16418,"eventName":"SPARK HUJ Bootcamp","time":"1230-1720","rhours":4.83333,"ohours":0.0}
+{"dateInt":20261110,"day":"TUE","date":"2026-11-10","eventNumber":16418,"eventName":"SPARK HUJ BootCamp","time":"1300-1650","rhours":3.83333,"ohours":0.0}
 {"dateInt":20261109,"day":"MON","date":"2026-11-09","eventNumber":16422,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20261108,"day":"SUN","date":"2026-11-08","eventNumber":16567,"eventName":"Men Soccer vs Syracuse","time":"1300-1750","rhours":4.83333,"ohours":0.0}
 {"dateInt":20261104,"day":"WED","date":"2026-11-04","eventNumber":16576,"eventName":"Rho Kanna","time":"1500-1810","rhours":3.16667,"ohours":0.0}
