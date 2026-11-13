@@ -18,6 +18,8 @@ import java.awt.Dimension;
 /*     */ import java.io.IOException;
 /*     */ import java.io.InputStream;
 /*     */ import java.io.OutputStream;
+			import java.nio.file.Files;
+			import java.nio.file.Path;
 /*     */ import java.util.ArrayList;
 /*     */ import java.util.Collections;
 /*     */ import java.util.Comparator;
@@ -30,11 +32,14 @@ import java.awt.Dimension;
 /*     */ import javax.swing.JMenuItem;
 /*     */ import javax.swing.JOptionPane;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /*     */ public class TimeCardSU extends JFrame
 /*     */   implements ActionListener
 /*     */ {
 /*  58 */   private final String CLASSNAME = "TimeCardSU";
 /*  59 */   private final String TIMECARD_DATABASE = "dailyhours";
+			private final String INPUTFILE = "dailyhours.csv";
 /*     */   
 /*     */   private static MySQLConnect mySQLDatabase;
 /*     */   
@@ -202,7 +207,8 @@ import java.awt.Dimension;
 /* 202 */             int result = JOptionPane.showConfirmDialog(frame1, theMessage, "alert", 0);
 /* 203 */             if (result == 0) {
 /* 204 */               TimeCardSU.this.downloadFromServerToFile();
-/* 205 */               TimeCardSU.this.copyFileToGoogleDrive();
+						//TimeCardSU.this.BackupFilesToComputer();
+/* 205 */               //TimeCardSU.this.copyFileToGoogleDrive();
 /* 206 */               System.exit(0);
 /*     */             } else {
 /* 208 */               System.exit(0);
@@ -321,22 +327,61 @@ import java.awt.Dimension;
 /* 303 */       this.mySQLDatabase.getQuery(query);
 /* 304 */       List<DailyInfoModel> myList = this.mySQLDatabase.getList();
 /* 305 */       Collections.sort(myList, new SortDailyInfoModelInDescendingOrderByDate());
-/* 306 */       sortByDateNWriteToFile(myList);
+/* 306 */        if (replaceDataInFile(myList, INPUTFILE)) {
+				    BackupFilesToComputer();
+				    JOptionPane.showMessageDialog(null, "SUCCESS: Data Downloaded to File and Backed Up to Computer");			
+				    if (createJSONFile(myList)) {
+				        JOptionPane.showMessageDialog(null, "SUCCESS: JSON File created ");
+				    } else {
+				        JOptionPane.showMessageDialog(null, "ERROR: Downloading JSON Data ");
+				    }
+				
+				} else {
+				
+				    JOptionPane.showMessageDialog(null, "Database Not Downloaded and Saved.");
+				}
+
+
+				//sortByDateNWriteToFile(myList);
 /* 307 */       this.mySQLDatabase.clearList();
 /*     */     } 
 /*     */   }
 /*     */ 
-/*     */ 
-/*     */   
-/*     */   public void downloadFromServerToFile1() {
-/* 314 */     JFrame frame = new JFrame();
-/* 315 */     String theMessage = " Download From Server? File Data Will Be Overwritten. Continue?";
-/* 316 */     int result = JOptionPane.showConfirmDialog(frame, theMessage, "alert", 
-/* 317 */         0);
-/* 318 */     if (result == 0) {
-/* 319 */       this.mySQLDatabase.getQuery();
-/*     */     }
-/*     */   }
+
+
+
+/**
+ * Creates a JSON file with the given HomeData list.
+ */
+/**
+ * @param data the list of HomeData objects to be written to the JSON file
+ */
+/**
+ * @return true if the JSON file was successfully created, false otherwise
+ */
+		public boolean createJSONFile(List<DailyInfoModel> data) {
+		    if (data.isEmpty()) {
+		        return false;
+		    }
+		    // Creates a json file with HomeData data
+		    try (FileWriter file = new FileWriter("homeData.json")) {
+		        file.write("{ \n");
+		        String str = " \"homeData\" ";
+		        file.write(str + ":[ \n");
+		        for (int i = 0; i < data.size(); i++) {
+		            ObjectMapper Obj = new ObjectMapper();
+		            String jsonStr = Obj.writeValueAsString(data.get(i));
+		            file.write(jsonStr + "\n");
+		        }
+		        file.write("] \n" + " }");
+		    } catch (IOException e) {
+		        // TODO Auto-generated catch bljock
+		        e.printStackTrace();
+		    }
+		    return true;
+		
+		}
+
   
 /*     */   static int convertDateStringToInt(String date) {
 /* 335 */     String delimStr = "-";
@@ -674,6 +719,86 @@ import java.awt.Dimension;
 /*     */     } 
 /* 772 */     return isWriteSuccess;
 /*     */   }
+
+
+private void BackupFilesToComputer() {
+    InputStream in = null;
+    OutputStream out = null;
+    File source = new File(INPUTFILE);
+
+    // 💡 INJECTION POINT: Get the smart, cross-platform destination file directly
+    File dest;
+    try {
+        dest = getCsvOutputFile();
+        JOptionPane.showMessageDialog(null, "Destination file path: " + dest.getAbsolutePath());
+
+    } catch (IOException e) {
+        JOptionPane.showMessageDialog(null,
+                "ERROR: Could not resolve or create backup directory: " + e.getMessage());
+        return; // Stop the execution if the folder setup fails
+    }
+
+    try {
+        in = new FileInputStream(source);
+        out = new FileOutputStream(dest);
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = in.read(buffer)) > 0) {
+            out.write(buffer, 0, length);
+        }
+    } catch (IOException e1) {
+        JOptionPane.showMessageDialog(null, "ERROR: File Copy Not Successful To Backup Destination");
+    } finally {
+        try {
+            if (in != null) {
+                in.close();
+            }
+            if (out == null) {
+                JOptionPane.showMessageDialog(null, "ERROR: Data Not copied to outfile");
+            } else {
+                out.close();
+            }
+        } catch (IOException e2) {
+            JOptionPane.showMessageDialog(null, "ERROR: File Copy Not Closed ");
+        }
+    }
+}
+
+
+
+/**
+ * Returns the destination CSV file for backup purposes.
+ */
+/**
+ * @return the destination CSV file
+ */
+/**
+ * @throws IOException if there is an error creating the parent directory
+ */
+public static File getCsvOutputFile() throws IOException {
+    String customPath = System.getenv("APP_BACKUP_PATH");
+    Path targetAddress ;
+
+    if (customPath != null && !customPath.isEmpty()) {
+        targetAddress = Path.of(customPath, "dailyhours.csv"); // Updated filename here
+    } else {
+        String userHome = System.getProperty("user.home");
+        targetAddress = Path.of(userHome, "StanfordTimeCard", "dailyhours.csv"); // Updatedfilename here
+    }
+    
+    try {
+		if (Files.notExists(targetAddress.getParent())) {
+		    Files.createDirectories(targetAddress.getParent());
+		}
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
+   
+    return targetAddress.toFile();
+}
+
 /*     */ }
 
 
