@@ -1,5 +1,11 @@
 package com.StanfordTimeCard.StanfordTimeCard;
 
+/*************************************************************
+ * ImagePanelis a generic  class that is not used in App
+ * The PicturePanel class was derived from this class
+ * 
+ ******************************************************************/
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;

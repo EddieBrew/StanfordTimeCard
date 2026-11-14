@@ -1,6 +1,14 @@
 /*     */
 package com.StanfordTimeCard.StanfordTimeCard;
 
+
+
+/*******************************************
+ * PayrollQuery is no longer used in App
+ * 
+ * 
+ ********************************************/
+
 /*     */ import java.awt.Color;
 /*     */ import java.awt.Component;
 /*     */ import java.awt.Font;

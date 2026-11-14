@@ -1,5 +1,12 @@
 package com.StanfordTimeCard.StanfordTimeCard;
-/*    */ 
+/***************************************************    
+ * MyTable class in no longer used in App
+ * 
+ * ******************************************************
+ * 
+ * 
+ * 
+ * / 
 /*    */ import java.util.ArrayList;
 /*    */ import java.util.List;
 

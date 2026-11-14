@@ -264,7 +264,7 @@ public class QueryFilterTable extends JFrame {
 
     }
     
-   
+   /*
     private void updateSummary() {
         summaryModel.setRowCount(0);   // ← clear rows only, don't touch columns
 
@@ -300,6 +300,8 @@ public class QueryFilterTable extends JFrame {
             ex.printStackTrace();
         }
 
+        
+        //total columns
         if (summaryModel.getRowCount() > 0) {
             summaryModel.addRow(new Object[]{
                 new java.math.BigDecimal(grandReg),
@@ -307,6 +309,52 @@ public class QueryFilterTable extends JFrame {
                 new java.math.BigDecimal(grandTotal)
             });
         }
+    }
+    
+    */
+    
+    private void updateSummary() {
+        summaryModel.setRowCount(0);   // Clear the table
+
+        QueryPanel.WhereClause wc = queryPanel.buildWhere();
+        
+        // We still use GROUP BY to let MySQL do the heavy lifting for the math
+        String sql = "SELECT SUM(REGHOURS) as total_reg, SUM(OTHOURS) as total_ot " +
+                "FROM dailyhours WHERE 1=1 " + 
+                wc.fragment();
+
+
+        double grandReg = 0.0;
+        double grandOT = 0.0;
+        double grandTotal = 0.0;
+
+        try (PreparedStatement ps = db.get().prepareStatement(sql)) {
+            List<Object> params = wc.params();
+            for (int i = 0; i < params.size(); i++) ps.setObject(i + 1, params.get(i));
+            
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    java.math.BigDecimal reg = rs.getBigDecimal("total_reg");
+                    java.math.BigDecimal ot  = rs.getBigDecimal("total_ot");
+                    
+                    if (reg == null) reg = java.math.BigDecimal.ZERO;
+                    if (ot  == null) ot  = java.math.BigDecimal.ZERO;
+
+                    grandReg = reg.doubleValue();
+                    grandOT = ot.doubleValue();
+                    grandTotal = grandReg + grandOT;
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        // Add exactly ONE row with the final totals
+        summaryModel.addRow(new Object[]{
+            new java.math.BigDecimal(grandReg),
+            new java.math.BigDecimal(grandOT),
+            new java.math.BigDecimal(grandTotal)
+        });
     }
     
 
