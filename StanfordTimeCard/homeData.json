@@ -1,7 +1,7 @@
 { 
  "homeData" :[ 
-{"dateInt":20261111,"day":"WED","date":"2026-11-11","eventNumber":16418,"eventName":"SPARK HUJ Bootcamp","time":"1230-1720","rhours":4.83333,"ohours":0.0}
-{"dateInt":20261110,"day":"TUE","date":"2026-11-10","eventNumber":16418,"eventName":"SPARK HUJ BootCamp","time":"1300-1650","rhours":3.83333,"ohours":0.0}
+{"dateInt":20261111,"day":"WED","date":"2026-11-11","eventNumber":16418,"eventName":"SPARK HUJ Bootcamp","time":"1230-1720","rhours":4.833333333333333,"ohours":0.0}
+{"dateInt":20261110,"day":"TUE","date":"2026-11-10","eventNumber":16418,"eventName":"SPARK HUJ BootCamp","time":"1300-1650","rhours":3.8333333333333335,"ohours":0.0}
 {"dateInt":20261109,"day":"MON","date":"2026-11-09","eventNumber":16422,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20261108,"day":"SUN","date":"2026-11-08","eventNumber":16567,"eventName":"Men Soccer vs Syracuse","time":"1300-1750","rhours":4.83333,"ohours":0.0}
 {"dateInt":20261104,"day":"WED","date":"2026-11-04","eventNumber":16576,"eventName":"Rho Kanna","time":"1500-1810","rhours":3.16667,"ohours":0.0}
@@ -77,7 +77,7 @@
 {"dateInt":20260414,"day":"TUE","date":"2026-04-14","eventNumber":16182,"eventName":"Bio Strategy  Conference","time":"800-1400","rhours":5.5,"ohours":0.0}
 {"dateInt":20260411,"day":"SAT","date":"2026-04-11","eventNumber":16154,"eventName":"Stanford Splash","time":"800-1800","rhours":8.0,"ohours":1.5}
 {"dateInt":20260410,"day":"FRI","date":"2026-04-10","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
-{"dateInt":20260402,"day":"THU","date":"2026-04-02","eventNumber":0,"eventName":"Campus Security-Beat 3","time":"1030-1500","rhours":4.5,"ohours":0.0}
+{"dateInt":20260402,"day":"THU","date":"2026-04-02","eventNumber":15994,"eventName":"Campus Security-Beat 3","time":"1030-1500","rhours":4.5,"ohours":0.0}
 {"dateInt":20260401,"day":"WED","date":"2026-04-01","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20260331,"day":"TUE","date":"2026-03-31","eventNumber":16093,"eventName":"Act$Aero","time":"1230-1800","rhours":5.5,"ohours":0.0}
 {"dateInt":20260325,"day":"WED","date":"2026-03-25","eventNumber":16052,"eventName":"Open Minds","time":"1200-1605","rhours":4.08333,"ohours":0.0}

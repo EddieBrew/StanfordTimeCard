@@ -327,7 +327,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /* 303 */       this.mySQLDatabase.getQuery(query);
 /* 304 */       List<DailyInfoModel> myList = this.mySQLDatabase.getList();
 /* 305 */       Collections.sort(myList, new SortDailyInfoModelInDescendingOrderByDate());
-				fixMyDate(myList);
+				//fixMyDate(myList);
 
 /* 306 */        if (replaceDataInFile(myList, INPUTFILE)) {
 				    BackupFilesToComputer();
@@ -624,30 +624,37 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /* 662 */       return TimeCardSU.convertDateStringToInt(b.getDate()) - TimeCardSU.convertDateStringToInt(a.getDate());
 /*     */     }
 /*     */   }
+
+	public static String reformatDateString(String rawDate) {
+	    if (rawDate == null || rawDate.trim().isEmpty()) {
+	        return "";
+	    }
+	    
+	    // 1. Instantly strip any weird whitespaces, newlines, or tabs
+	    String cleanInput = rawDate.trim().replaceAll("\\s", "");
+	    
+	    // 2. Break down the components by the dashes
+	    String[] parts = cleanInput.split("-");
+	    if (parts.length != 3) {
+	        return cleanInput; // Fallback to raw data if it isn't an expected yyyy-mm-dd format
+	    }
+	    
+	    try {
+	        // 3. Clean and parse numbers (removes all excessive leading zeros)
+	        int year = Integer.parseInt(parts[0].replaceAll("\\D", ""));
+	        int month = Integer.parseInt(parts[1]);
+	        int day = Integer.parseInt(parts[2]);
+	        
+	        // 4. Force strict yyyy-MM-dd formatting with safe two-digit sizing
+	        return String.format("%04d-%02d-%02d", year, month, day);
+	        
+	    } catch (NumberFormatException e) {
+	        // Fallback safely if something entirely unexpected is inside the text string
+	        return cleanInput;
+	    }
+	}
+
   
-/*     */   public static String reformatDateString(String date) {
-/* 669 */     String newDate = null;
-/* 670 */     String DELIMITER = "-";
-/* 671 */     String[] oldDate = date.split(DELIMITER);
-/* 672 */     String month = null;
-/* 673 */     String day = null;
-/*     */     
-/* 675 */     month = oldDate[1]; day = oldDate[2];
-/*     */     
-/* 677 */     if (Integer.parseInt(oldDate[1]) < 10) {
-/* 678 */       month = "0" + oldDate[1];
-/*     */     } else {
-/* 680 */       month = oldDate[1];
-/*     */     } 
-/* 682 */     if (Integer.parseInt(oldDate[2]) < 10)
-/* 683 */     { day = "0" + oldDate[2]; }
-/* 684 */     else { day = 
-/* 685 */         oldDate[2]; }
-/*     */ 
-/*     */     
-/* 688 */     newDate = String.valueOf(oldDate[0]) + "-" + month + "-" + day;
-/* 689 */     return newDate;
-/*     */   }
 
 /*     */   public static Boolean replaceDataInFile(List<DailyInfoModel> list, String filename) {
 /* 703 */     Boolean isWriteSuccess = Boolean.valueOf(false);
