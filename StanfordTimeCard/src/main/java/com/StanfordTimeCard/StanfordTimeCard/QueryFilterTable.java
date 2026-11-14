@@ -264,54 +264,7 @@ public class QueryFilterTable extends JFrame {
 
     }
     
-   /*
-    private void updateSummary() {
-        summaryModel.setRowCount(0);   // ← clear rows only, don't touch columns
-
-        QueryPanel.WhereClause wc = queryPanel.buildWhere();
-        String sql = "SELECT `DATE`, SUM(REGHOURS) as total_reg, SUM(OTHOURS) as total_ot " +
-                     "FROM "+ TIMECARD_DATABASE +   " WHERE 1=1 " + 
-                     wc.fragment() + " GROUP BY `DATE` ORDER BY `DATE` DESC";
-
-        double grandReg = 0.0;
-        double grandOT = 0.0;
-        double grandTotal = 0.0;
-        //System.out.println("Summary SQL: " + sql);
-        //System.out.println("Summary Params: " + wc.params());
-        try (PreparedStatement ps = db.get().prepareStatement(sql)) {
-            List<Object> params = wc.params();
-            for (int i = 0; i < params.size(); i++) ps.setObject(i + 1, params.get(i));
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    java.math.BigDecimal reg = rs.getBigDecimal("total_reg");
-                    java.math.BigDecimal ot  = rs.getBigDecimal("total_ot");
-                    if (reg == null) reg = java.math.BigDecimal.ZERO;
-                    if (ot  == null) ot  = java.math.BigDecimal.ZERO;
-                    java.math.BigDecimal dailyTotal = reg.add(ot);
-
-                    summaryModel.addRow(new Object[]{ reg, ot, dailyTotal });
-
-                    grandReg   += reg.doubleValue();
-                    grandOT    += ot.doubleValue();
-                    grandTotal += dailyTotal.doubleValue();
-                }
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-
-        
-        //total columns
-        if (summaryModel.getRowCount() > 0) {
-            summaryModel.addRow(new Object[]{
-                new java.math.BigDecimal(grandReg),
-                new java.math.BigDecimal(grandOT),
-                new java.math.BigDecimal(grandTotal)
-            });
-        }
-    }
-    
-    */
+  
     
     private void updateSummary() {
         summaryModel.setRowCount(0);   // Clear the table

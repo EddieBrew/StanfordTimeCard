@@ -113,8 +113,8 @@
 {"dateInt":20260109,"day":"FRI","date":"2026-01-09","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20260106,"day":"TUE","date":"2026-01-06","eventNumber":15674,"eventName":"Foothills","time":"600-1800","rhours":8.0,"ohours":3.5}
 {"dateInt":20251230,"day":"TUE","date":"2025-12-30","eventNumber":15926,"eventName":"Winter Break Security","time":"700-1530","rhours":8.0,"ohours":0.0}
-{"dateInt":20251229,"day":"MON","date":"2025-12-29","eventNumber":15926,"eventName":"Winter Break Security","time":"700-1530","rhours":8.0,"ohours":0.0}
-{"dateInt":20251224,"day":"WED","date":"2025-12-24","eventNumber":15926,"eventName":"Winter Break Security","time":"700-1530","rhours":8.0,"ohours":0.0}
+{"dateInt":20251229,"day":"MON","date":"2025-12-29","eventNumber":15926,"eventName":"Winter Break  Security","time":"700-1530","rhours":8.0,"ohours":0.0}
+{"dateInt":20251224,"day":"WED","date":"2025-12-24","eventNumber":15926,"eventName":"Winter Break  Security","time":"700-1530","rhours":8.0,"ohours":0.0}
 {"dateInt":20251223,"day":"TUE","date":"2025-12-23","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20251219,"day":"FRI","date":"2025-12-19","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20251218,"day":"THU","date":"2025-12-18","eventNumber":15674,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
@@ -231,11 +231,11 @@
 {"dateInt":20250118,"day":"SAT","date":"2025-01-18","eventNumber":15099,"eventName":"Campus Security","time":"900-1600","rhours":6.5,"ohours":0.0}
 {"dateInt":20250117,"day":"FRI","date":"2025-01-17","eventNumber":15097,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20250102,"day":"THU","date":"2025-01-02","eventNumber":15097,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
-{"dateInt":20250101,"day":"WED","date":"2025-01-01","eventNumber":15312,"eventName":"Winter Security","time":"700-1530","rhours":8.0,"ohours":0.0}
+{"dateInt":20250101,"day":"WED","date":"2025-01-01","eventNumber":15312,"eventName":"Winter Break Security","time":"700-1530","rhours":8.0,"ohours":0.0}
 {"dateInt":20241224,"day":"TUE","date":"2024-12-24","eventNumber":15097,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20241223,"day":"MON","date":"2024-12-23","eventNumber":15312,"eventName":"Winter Break Security","time":"700-1530","rhours":8.0,"ohours":0.0}
 {"dateInt":20241221,"day":"SAT","date":"2024-12-21","eventNumber":15312,"eventName":"Winter Break Security","time":"1515-2335","rhours":7.83333,"ohours":0.0}
-{"dateInt":20241220,"day":"FRI","date":"2024-12-20","eventNumber":15312,"eventName":"Winter Break Security","time":"700-1530","rhours":8.0,"ohours":0.0}
+{"dateInt":20241220,"day":"FRI","date":"2024-12-20","eventNumber":15312,"eventName":"Winter Break  Security","time":"700-1530","rhours":8.0,"ohours":0.0}
 {"dateInt":20241219,"day":"THU","date":"2024-12-19","eventNumber":15097,"eventName":"Foothills","time":"600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20241210,"day":"TUE","date":"2024-12-10","eventNumber":15097,"eventName":"Foothills","time":"600-1315","rhours":6.75,"ohours":0.0}
 {"dateInt":20241209,"day":"MON","date":"2024-12-09","eventNumber":15099,"eventName":"Campus Security","time":"900-1600","rhours":6.5,"ohours":0.0}
@@ -331,13 +331,13 @@
 {"dateInt":20240211,"day":"SUN","date":"2024-02-11","eventNumber":14192,"eventName":"Foothills","time":"0600-1300","rhours":6.5,"ohours":0.0}
 {"dateInt":20240131,"day":"WED","date":"2024-01-31","eventNumber":14366,"eventName":"MarkazSecurity","time":"0700-1500","rhours":7.5,"ohours":0.0}
 {"dateInt":20240130,"day":"TUE","date":"2024-01-30","eventNumber":14366,"eventName":"WhitePlazaSecurity","time":"0700-1530","rhours":8.0,"ohours":0.0}
-{"dateInt":20240105,"day":"FRI","date":"2024-01-05","eventNumber":14530,"eventName":"WinterBreakSecurity","time":"1500-2300","rhours":7.5,"ohours":0.0}
-{"dateInt":20231227,"day":"WED","date":"2023-12-27","eventNumber":14530,"eventName":"WinterBreakSecurity","time":"0645-1515","rhours":8.0,"ohours":0.5}
+{"dateInt":20240105,"day":"FRI","date":"2024-01-05","eventNumber":14530,"eventName":"Winter Break Security","time":"1500-2300","rhours":7.5,"ohours":0.0}
+{"dateInt":20231227,"day":"WED","date":"2023-12-27","eventNumber":14530,"eventName":"Winter Break Security","time":"0645-1515","rhours":8.0,"ohours":0.5}
 {"dateInt":20231226,"day":"TUE","date":"2023-12-26","eventNumber":14530,"eventName":"CallOff-Sick","time":"0645-1515","rhours":8.0,"ohours":1.0}
-{"dateInt":20231225,"day":"MON","date":"2023-12-25","eventNumber":14530,"eventName":"WinterBreakSecurity","time":"0645-1845","rhours":8.0,"ohours":4.0}
-{"dateInt":20231224,"day":"SUN","date":"2023-12-24","eventNumber":14530,"eventName":"WinterBreakSecurity","time":"0645-1515","rhours":8.0,"ohours":0.0}
-{"dateInt":20231223,"day":"SAT","date":"2023-12-23","eventNumber":14530,"eventName":"WinterBreakSecurity","time":"0645-1515","rhours":8.0,"ohours":0.0}
-{"dateInt":20231222,"day":"FRI","date":"2023-12-22","eventNumber":14530,"eventName":"WinterBreakSecurity","time":"0645-1515","rhours":8.0,"ohours":0.0}
+{"dateInt":20231225,"day":"MON","date":"2023-12-25","eventNumber":14530,"eventName":"Winter Break Security","time":"0645-1845","rhours":8.0,"ohours":4.0}
+{"dateInt":20231224,"day":"SUN","date":"2023-12-24","eventNumber":14530,"eventName":"Winter Break Security","time":"0645-1515","rhours":8.0,"ohours":0.0}
+{"dateInt":20231223,"day":"SAT","date":"2023-12-23","eventNumber":14530,"eventName":"Winter Break Security","time":"0645-1515","rhours":8.0,"ohours":0.0}
+{"dateInt":20231222,"day":"FRI","date":"2023-12-22","eventNumber":14530,"eventName":"Winter Break Security","time":"0645-1515","rhours":8.0,"ohours":0.0}
 {"dateInt":20200617,"day":"WED","date":"2020-06-17","eventNumber":13184,"eventName":"GalvezLotSecurity","time":"1730-0000","rhours":6.0,"ohours":0.0}
 {"dateInt":20200615,"day":"MON","date":"2020-06-15","eventNumber":13184,"eventName":"GalvezLotSecurity","time":"1730-0000","rhours":6.0,"ohours":0.0}
 {"dateInt":20200613,"day":"SAT","date":"2020-06-13","eventNumber":13169,"eventName":"SecurityOperations","time":"1430-2230","rhours":7.5,"ohours":0.0}
@@ -428,11 +428,11 @@
 {"dateInt":20200103,"day":"FRI","date":"2020-01-03","eventNumber":12675,"eventName":"TourBus","time":"1200-1700","rhours":5.0,"ohours":0.0}
 {"dateInt":20200102,"day":"THU","date":"2020-01-02","eventNumber":12875,"eventName":"MenBBvsCal","time":"1830-2230","rhours":4.0,"ohours":0.0}
 {"dateInt":20191229,"day":"SUN","date":"2019-12-29","eventNumber":12875,"eventName":"MenBBvsKansas","time":"1030-1500","rhours":4.5,"ohours":0.0}
-{"dateInt":20191229,"day":"SUN","date":"2019-12-29","eventNumber":12967,"eventName":"WBSecurity","time":"0630-1000","rhours":3.5,"ohours":0.0}
+{"dateInt":20191229,"day":"SUN","date":"2019-12-29","eventNumber":12967,"eventName":"Winter Break Security","time":"0630-1000","rhours":3.5,"ohours":0.0}
 {"dateInt":20191226,"day":"THU","date":"2019-12-26","eventNumber":12678,"eventName":"Foothills","time":"0600-1230","rhours":6.0,"ohours":0.0}
 {"dateInt":20191225,"day":"WED","date":"2019-12-25","eventNumber":12678,"eventName":"Foothills","time":"0600-1230","rhours":6.0,"ohours":0.0}
-{"dateInt":20191223,"day":"MON","date":"2019-12-23","eventNumber":12967,"eventName":"WBSecurity","time":"1430-2300","rhours":8.0,"ohours":0.0}
-{"dateInt":20191222,"day":"SUN","date":"2019-12-22","eventNumber":12967,"eventName":"WBSecurity","time":"1430-2300","rhours":8.0,"ohours":0.0}
+{"dateInt":20191223,"day":"MON","date":"2019-12-23","eventNumber":12967,"eventName":"Winter Break Security","time":"1430-2300","rhours":8.0,"ohours":0.0}
+{"dateInt":20191222,"day":"SUN","date":"2019-12-22","eventNumber":12967,"eventName":"Winter Break Security","time":"1430-2300","rhours":8.0,"ohours":0.0}
 {"dateInt":20191221,"day":"SAT","date":"2019-12-21","eventNumber":12678,"eventName":"Foothills","time":"0600-1100","rhours":5.0,"ohours":0.0}
 {"dateInt":20191220,"day":"FRI","date":"2019-12-20","eventNumber":12678,"eventName":"Foothills","time":"1430-1830","rhours":4.0,"ohours":0.0}
 {"dateInt":20191218,"day":"WED","date":"2019-12-18","eventNumber":12853,"eventName":"WomenBBvsTennessee","time":"1730-2130","rhours":4.0,"ohours":0.0}
@@ -640,9 +640,9 @@
 {"dateInt":20181230,"day":"SUN","date":"2018-12-30","eventNumber":12032,"eventName":"Foothills","time":"0600-1230","rhours":6.0,"ohours":0.0}
 {"dateInt":20181229,"day":"SAT","date":"2018-12-29","eventNumber":0,"eventName":"Sick","time":"0600-1430","rhours":8.0,"ohours":0.0}
 {"dateInt":20181224,"day":"MON","date":"2018-12-24","eventNumber":12032,"eventName":"Foothills","time":"0600-1230","rhours":6.0,"ohours":0.0}
-{"dateInt":20181223,"day":"SUN","date":"2018-12-23","eventNumber":12210,"eventName":"WBSecurity","time":"1430-2300","rhours":8.0,"ohours":0.0}
-{"dateInt":20181222,"day":"SAT","date":"2018-12-22","eventNumber":12210,"eventName":"WBSecurity","time":"1430-2300","rhours":8.0,"ohours":0.0}
-{"dateInt":20181221,"day":"FRI","date":"2018-12-21","eventNumber":12210,"eventName":"WBSecurity","time":"1430-2300","rhours":8.0,"ohours":0.0}
+{"dateInt":20181223,"day":"SUN","date":"2018-12-23","eventNumber":12210,"eventName":"Winter Break Security","time":"1430-2300","rhours":8.0,"ohours":0.0}
+{"dateInt":20181222,"day":"SAT","date":"2018-12-22","eventNumber":12210,"eventName":"Winter Break Security","time":"1430-2300","rhours":8.0,"ohours":0.0}
+{"dateInt":20181221,"day":"FRI","date":"2018-12-21","eventNumber":12210,"eventName":"Winter Break Security","time":"1430-2300","rhours":8.0,"ohours":0.0}
 {"dateInt":20181218,"day":"TUE","date":"2018-12-18","eventNumber":12167,"eventName":"MenBBvsSJSU","time":"1730-2130","rhours":4.0,"ohours":0.0}
 {"dateInt":20181215,"day":"SAT","date":"2018-12-15","eventNumber":12165,"eventName":"MenBBvsEasternWashington","time":"1400-1830","rhours":4.5,"ohours":0.0}
 {"dateInt":20181214,"day":"FRI","date":"2018-12-14","eventNumber":12037,"eventName":"VadenPharmacy","time":"1600-1800","rhours":2.0,"ohours":0.0}
@@ -789,7 +789,7 @@
 {"dateInt":20180201,"day":"THU","date":"2018-02-01","eventNumber":11445,"eventName":"MeBBvsOregonState","time":"1630-2040","rhours":4.17,"ohours":0.0}
 {"dateInt":20180131,"day":"WED","date":"2018-01-31","eventNumber":11556,"eventName":"BingConcert","time":"1800-2215","rhours":4.25,"ohours":0.0}
 {"dateInt":20180128,"day":"SUN","date":"2018-01-28","eventNumber":11464,"eventName":"WomenBBvsArizina","time":"1330-1930","rhours":6.0,"ohours":0.0}
-{"dateInt":20180104,"day":"THU","date":"2018-01-04","eventNumber":11369,"eventName":"WBSecurity","time":"1500-2300","rhours":8.0,"ohours":0.0}
+{"dateInt":20180104,"day":"THU","date":"2018-01-04","eventNumber":11369,"eventName":"Winter Break Security","time":"1500-2300","rhours":8.0,"ohours":0.0}
 {"dateInt":20171224,"day":"SUN","date":"2017-12-24","eventNumber":11258,"eventName":"FoothillOpening","time":"0600-1330","rhours":7.0,"ohours":0.0}
 {"dateInt":20171223,"day":"SAT","date":"2017-12-23","eventNumber":11257,"eventName":"TourBus-Palm/Roth","time":"1300-1830","rhours":5.5,"ohours":0.0}
 ] 

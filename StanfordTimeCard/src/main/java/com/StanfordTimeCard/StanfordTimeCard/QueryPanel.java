@@ -26,7 +26,7 @@ public class QueryPanel extends JPanel {
     private final JComboBox<String> dayFilter = new JComboBox<>(
             new String[]{"", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"});
     private final JComboBox<String> eventFilter = new JComboBox<>(
-            new String[]{"", "FOOTBALL", "FOOTHILLS", "WINTER SECURITY", "WOMEN BASKETBALL", "MEN BASKETBALL", "HILLEL", "FROST", "STADIUM CONCERT"});
+            new String[]{"", "FOOTBALL", "FOOTHILLS", "WINTER BREAK SECURITY", "WOMEN BASKETBALL", "MEN BASKETBALL", "HILLEL", "FROST", "STADIUM CONCERT"});
     private final JDateChooser dateFrom = new JDateChooser();
     private final JDateChooser dateTo = new JDateChooser();
 
