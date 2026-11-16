@@ -402,6 +402,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 	 * @return true if the JSON file was successfully created, false otherwise
 	 */
 	public boolean createJSONFile(List<DailyInfoModel> data) {
+		
+		
 		if (data.isEmpty()) {
 			return false;
 		}
