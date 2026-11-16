@@ -13,8 +13,8 @@
 /*     */   implements Comparable<DailyInfoModel>
 /*     */ {
 /*     */   private int dateInt;
-/*     */   private String day;
 /*     */   private String date;
+/*     */   private String day;
 /*     */   private Integer eventNumber;
 /*     */   private String eventName;
 /*     */   private String time;

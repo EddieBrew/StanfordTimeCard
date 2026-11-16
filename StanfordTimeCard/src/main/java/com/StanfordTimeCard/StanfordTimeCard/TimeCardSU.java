@@ -61,7 +61,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 	private JMenuItem modify;
 	private JMenuItem logout; 
 	private JMenuItem download; 
-	private JMenuItem upload; 
+	private JMenuItem uploadDataFile; 
+	private JMenuItem uploadJSONFile;
 	private JMenuItem about;
 	private JMenuItem reformatDate;
 	private JMenuItem reconnectToDatabase; 
@@ -94,9 +95,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		/*     */ 
 		/*     */ 
 		/*     */     this.queries = new JMenuItem("Queries");
-					this.modify = new JMenuItem("Modify Database Entries");
+					  this.modify = new JMenuItem("Modify Database Entries");
 		/* 106 */     this.download = new JMenuItem("Download From Server");
-		/* 107 */     this.upload = new JMenuItem("Copy File Data To Database");
+		/* 107 */     this.uploadDataFile = new JMenuItem("Copy File Data To Database");
+	     			  this.uploadJSONFile = new JMenuItem("Copy JSON Data To Database");
+		
 		/* 108 */     this.logout = new JMenuItem("Logout");
 		/* 109 */     this.about = new JMenuItem("About");
 		/* 110 */     this.reformatDate = new JMenuItem("Reformat Date");
@@ -108,7 +111,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 						this.myMenu.add(this.queries);
 						this.myMenu.add(this.modify);
 						this.myMenu.add(this.download);
-		/* 115 */     this.myMenu.add(this.upload);
+		/* 115 */     this.myMenu.add(this.uploadDataFile);
+		 				this.myMenu.add(this.uploadJSONFile);
 		/*     */     
 		/* 117 */     this.myMenu.add(this.reconnectToDatabase);
 		/* 118 */     this.myMenu.add(this.logout);
@@ -162,7 +166,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			/*     */           }
 		/*     */         });
 		/*     */     
-		/* 148 */     this.upload.addActionListener(new ActionListener()
+		/* 148 */     this.uploadDataFile.addActionListener(new ActionListener()
 				/*     */         {
 			/*     */ 
 			/*     */           
@@ -183,6 +187,24 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 				/* 166 */             databaseThread.start();
 			/*     */           }
 		/*     */         });
+		
+		
+		
+					  this.uploadJSONFile.addActionListener(new ActionListener() {
+
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							// TODO Auto-generated method stub
+							
+							if(mySQLDatabase.updateJSONtoDatabase()) {
+								
+								JOptionPane.showMessageDialog(null, "MYSQL database updated with JSON Data");
+							}else {
+								JOptionPane.showMessageDialog(null, "ERROR: MYSQL database was not  updated with JSON Data");		
+							}							
+						}
+					  });
+					 
 		/*     */     
 		/* 170 */     this.reconnectToDatabase.addActionListener(new ActionListener()
 				/*     */         {
@@ -391,7 +413,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			for (int i = 0; i < data.size(); i++) {
 				ObjectMapper Obj = new ObjectMapper();
 				String jsonStr = Obj.writeValueAsString(data.get(i));
-				file.write(jsonStr + "\n");
+				if(i == data.size()-1) {
+						file.write(jsonStr + "\n");
+				}else {
+					file.write(jsonStr + ", \n");
+				}
+			
 			}
 			file.write("] \n" + " }");
 		} catch (IOException e) {
@@ -399,8 +426,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			e.printStackTrace();
 		}
 		return true;
-
 	}
+	
+	
 
 
 	/*     */   static int convertDateStringToInt(String date) {
