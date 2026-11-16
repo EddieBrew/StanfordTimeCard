@@ -1,283 +1,270 @@
-/*     */
+
 package com.StanfordTimeCard.StanfordTimeCard;
 
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
 
-/*******************************************
- * PayrollQuery is no longer used in App
- * 
- * 
- ********************************************/
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.SpringLayout;
 
-/*     */ import java.awt.Color;
-/*     */ import java.awt.Component;
-/*     */ import java.awt.Font;
-/*     */ import java.awt.event.ActionEvent;
-/*     */ import java.awt.event.ActionListener;
-/*     */ import java.io.BufferedReader;
-/*     */ import java.io.FileReader;
-/*     */ import java.io.IOException;
-/*     */ import java.util.ArrayList;
-/*     */ import java.util.Comparator;
-/*     */ import java.util.Date;
-/*     */ import java.util.List;
 
-/*     */ import javax.swing.JButton;
-/*     */ import javax.swing.JFrame;
-/*     */ import javax.swing.JLabel;
-/*     */ import javax.swing.JOptionPane;
-/*     */ import javax.swing.JPanel;
-/*     */ import javax.swing.SpringLayout;
+import com.toedter.calendar.JDateChooser;
 
-/*     */
-/*     */ import com.toedter.calendar.JDateChooser;
+public class PayrollQueryPanel extends JPanel{
+	private static final long serialVersionUID = -1141796694623429571L;
+	private JLabel lblMessage;
+	private JLabel lblRegHoursData;
+	private JLabel lblOTHoursData;
+	private JDateChooser dateChooserPayRollBegin;
+	private JDateChooser dateChooserPayRollEnd;
+	private MySQLConnect mySQLDatabase;
+	private final String PAYROLL_HOURS_DATABASE_TABLE = "dailyhours";
+	private final String inputFile = "dailyhours.csv";
+	private Boolean databaseStatus;
 
-/*     */ public class PayrollQueryPanel/*     */ extends JPanel
-/*     */ {
-	/*     */ private static final long serialVersionUID = -1141796694623429571L;
-	/*     */ private JLabel lblMessage;
-	/*     */ private JLabel lblRegHoursData;
-	/*     */ private JLabel lblOTHoursData;
-	/*     */ private JDateChooser dateChooserPayRollBegin;
-	/*     */ private JDateChooser dateChooserPayRollEnd;
-	/*     */ private MySQLConnect mySQLDatabase;
-	/* 51 */ private final String PAYROLL_HOURS_DATABASE_TABLE = "dailyhours";
-	/* 52 */ private final String inputFile = "dailyhours.csv";
-	/*     */ private Boolean databaseStatus;
 
-	/*     */
-	/*     */ public PayrollQueryPanel(final MySQLConnect mySQLDatabase, Boolean dStatus) {
-		/* 56 */ this.mySQLDatabase = mySQLDatabase;
-		/* 57 */ this.databaseStatus = dStatus;
-		/* 58 */ setBackground(Color.GREEN);
-		/* 59 */ SpringLayout springLayout = new SpringLayout();
-		/* 60 */ setLayout(springLayout);
-		/*     */
-		/* 62 */ JLabel lblBeginningDate = new JLabel("Beginning Date");
-		/* 63 */ springLayout.putConstraint("North", lblBeginningDate, 51, "North", this);
-		/* 64 */ add(lblBeginningDate);
-		/*     */
-		/* 66 */ JLabel lblEndingDate = new JLabel("Ending Date");
-		/* 67 */ springLayout.putConstraint("North", lblEndingDate, 0, "North", lblBeginningDate);
-		/* 68 */ springLayout.putConstraint("West", lblEndingDate, 58, "East", lblBeginningDate);
-		/* 69 */ add(lblEndingDate);
-		/*     */
-		/* 71 */ JLabel lblPayrollPeriod = new JLabel("PAYROLL QUERY PANEL");
-		/* 72 */ springLayout.putConstraint("North", lblPayrollPeriod, 10, "North", this);
-		/* 73 */ springLayout.putConstraint("West", lblPayrollPeriod, 127, "West", this);
-		/* 74 */ lblPayrollPeriod.setFont(new Font("Tahoma", 1, 15));
-		/* 75 */ add(lblPayrollPeriod);
-		/*     */
-		/* 77 */ this.dateChooserPayRollBegin = new JDateChooser();
-		/* 78 */ springLayout.putConstraint("North", (Component) this.dateChooserPayRollBegin, 6, "South",
+	public PayrollQueryPanel(final MySQLConnect mySQLDatabase, Boolean dStatus) {
+		this.mySQLDatabase = mySQLDatabase;
+		this.databaseStatus = dStatus;
+		setBackground(Color.GREEN);
+		SpringLayout springLayout = new SpringLayout();
+		setLayout(springLayout);
+
+		JLabel lblBeginningDate = new JLabel("Beginning Date");
+		springLayout.putConstraint("North", lblBeginningDate, 51, "North", this);
+		add(lblBeginningDate);
+
+		JLabel lblEndingDate = new JLabel("Ending Date");
+		springLayout.putConstraint("North", lblEndingDate, 0, "North", lblBeginningDate);
+		springLayout.putConstraint("West", lblEndingDate, 58, "East", lblBeginningDate);
+		add(lblEndingDate);
+
+		JLabel lblPayrollPeriod = new JLabel("PAYROLL QUERY PANEL");
+		springLayout.putConstraint("North", lblPayrollPeriod, 10, "North", this);
+		springLayout.putConstraint("West", lblPayrollPeriod, 127, "West", this);
+		lblPayrollPeriod.setFont(new Font("Tahoma", 1, 15));
+		add(lblPayrollPeriod);
+
+		this.dateChooserPayRollBegin = new JDateChooser();
+		springLayout.putConstraint("North", (Component) this.dateChooserPayRollBegin, 6, "South",
 				lblBeginningDate);
-		/* 79 */ springLayout.putConstraint("West", lblBeginningDate, 0, "West",
+		springLayout.putConstraint("West", lblBeginningDate, 0, "West",
 				(Component) this.dateChooserPayRollBegin);
-		/* 80 */ springLayout.putConstraint("West", (Component) this.dateChooserPayRollBegin, 9, "West", this);
-		/* 81 */ springLayout.putConstraint("East", (Component) this.dateChooserPayRollBegin, 98, "West", this);
-		/* 82 */ this.dateChooserPayRollBegin.setDateFormatString("MM/dd/yyyy");
-		/* 83 */ add((Component) this.dateChooserPayRollBegin);
-		/*     */
-		/* 85 */ this.dateChooserPayRollEnd = new JDateChooser();
-		/* 86 */ springLayout.putConstraint("West", (Component) this.dateChooserPayRollEnd, -24, "West", lblEndingDate);
-		/* 87 */ springLayout.putConstraint("South", (Component) this.dateChooserPayRollEnd, 0, "South",
+		springLayout.putConstraint("West", (Component) this.dateChooserPayRollBegin, 9, "West", this);
+		springLayout.putConstraint("East", (Component) this.dateChooserPayRollBegin, 98, "West", this);
+		this.dateChooserPayRollBegin.setDateFormatString("MM/dd/yyyy");
+		add((Component) this.dateChooserPayRollBegin);
+
+		this.dateChooserPayRollEnd = new JDateChooser();
+		springLayout.putConstraint("West", (Component) this.dateChooserPayRollEnd, -24, "West", lblEndingDate);
+		springLayout.putConstraint("South", (Component) this.dateChooserPayRollEnd, 0, "South",
 				(Component) this.dateChooserPayRollBegin);
-		/* 88 */ springLayout.putConstraint("East", (Component) this.dateChooserPayRollEnd, 7, "East", lblEndingDate);
-		/* 89 */ this.dateChooserPayRollEnd.setDateFormatString("MM/dd/yyyy");
-		/* 90 */ add((Component) this.dateChooserPayRollEnd);
-		/*     */
-		/* 92 */ this.lblMessage = new JLabel("Outgoing Message");
-		/* 93 */ springLayout.putConstraint("North", this.lblMessage, 113, "North", this);
-		/* 94 */ springLayout.putConstraint("West", this.lblMessage, 10, "West", this);
-		/* 95 */ add(this.lblMessage);
-		/*     */
-		/* 97 */ JLabel lblRegHours = new JLabel("Regular Hours : ");
-		/* 98 */ springLayout.putConstraint("North", lblRegHours, 14, "South", this.lblMessage);
-		/* 99 */ springLayout.putConstraint("West", lblRegHours, 11, "West", this);
-		/* 100 */ add(lblRegHours);
-		/*     */
-		/* 102 */ this.lblRegHoursData = new JLabel("0.0");
-		/* 103 */ springLayout.putConstraint("North", this.lblRegHoursData, 0, "North", lblRegHours);
-		/* 104 */ springLayout.putConstraint("West", this.lblRegHoursData, 6, "East", lblRegHours);
-		/* 105 */ add(this.lblRegHoursData);
-		/*     */
-		/* 107 */ JLabel lblOTHours = new JLabel("Overtime Hours : ");
-		/* 108 */ springLayout.putConstraint("East", this.lblRegHoursData, -24, "West", lblOTHours);
-		/* 109 */ springLayout.putConstraint("North", lblOTHours, 0, "North", lblRegHours);
-		/* 110 */ springLayout.putConstraint("West", lblOTHours, 88, "East", lblRegHours);
-		/* 111 */ add(lblOTHours);
-		/*     */
-		/* 113 */ this.lblOTHoursData = new JLabel("0.0");
-		/* 114 */ springLayout.putConstraint("North", this.lblOTHoursData, 0, "North", lblRegHours);
-		/* 115 */ springLayout.putConstraint("West", this.lblOTHoursData, 6, "East", lblOTHours);
-		/* 116 */ add(this.lblOTHoursData);
-		/*     */
-		/* 118 */ JButton btnResults = new JButton("Get Results");
-		/* 119 */ springLayout.putConstraint("North", btnResults, 0, "North", (Component) this.dateChooserPayRollBegin);
-		/* 120 */ springLayout.putConstraint("West", btnResults, 26, "East", (Component) this.dateChooserPayRollEnd);
-		/* 121 */ springLayout.putConstraint("East", btnResults, -66, "East", this);
-		/* 122 */ add(btnResults);
-		/*     */
-		/* 124 */ btnResults.addActionListener(new ActionListener()
-		/*     */ {
-			/*     */ public void actionPerformed(ActionEvent arg0)
-			/*     */ {
-				/* 128 */ PayrollQueryPanel.this.lblRegHoursData.setText("0.0");
-				/* 129 */ PayrollQueryPanel.this.lblOTHoursData.setText("0.0");
-				/* 130 */ Date dateStartBegin = PayrollQueryPanel.this.dateChooserPayRollBegin.getDate();
-				/* 131 */ Date dateStartEnd = PayrollQueryPanel.this.dateChooserPayRollEnd.getDate();
-				/*     */
-				/*     */
-				/* 134 */ String beginDateString = TimePanel.getDateString(dateStartBegin);
-				/* 135 */ String endDateString = TimePanel.getDateString(dateStartEnd);
-				/* 136 */ List<DailyInfoModel> list = null;
-				/* 137 */ if (!databaseStatus) {
-					/*     */
-					/* 139 */ list = PayrollQueryPanel.this.getDataFromFile(beginDateString, endDateString);
-					/* 140 */ System.out.println("Size of list is : " + list.size());
-					/*     */
-					/*     */ }else {
-						 
-						  
-						  String result = "SELECT * FROM dailyhours WHERE  DATE >= '" +
-						  beginDateString + "' AND DATE <= '" + endDateString +
-						  "'  ORDER BY DATE DESC";
-						  System.out.println(result);
-					
-						 mySQLDatabase.getDateRangeResults(result);
-						  PayrollQueryPanel.this.lblMessage.
-						  setText("The Bi-Weekly Payroll Hours  from " + beginDateString + " to " + endDateString + " are:");
-						  String title = "Pay Period From "+ beginDateString + " to " + endDateString;
-					      list = mySQLDatabase.getList();
-					      new MyTable(list, title);
-					      //getPayrollHours(list);
-					      
-						}
-						//mySQLDatabase.clearList();
+		springLayout.putConstraint("East", (Component) this.dateChooserPayRollEnd, 7, "East", lblEndingDate);
+		this.dateChooserPayRollEnd.setDateFormatString("MM/dd/yyyy");
+		add((Component) this.dateChooserPayRollEnd);
 
-		
-							 
-				/*     */
-				/*     */
-				/* 157 */ if (list.size() == 0) {
-					/* 158 */ JFrame frame = new JFrame();
-					/* 159 */ JOptionPane.showMessageDialog(frame,
-							/* 160 */ "No Data Available Between Date Range. Verify that the Beginning and Ending Dates are accurate",
-							/* 161 */ "Data Error", /* 162 */ 0);
-					/*     */ } else {
-					/*     */
-					/* 165 */ String title = "Pay Period for " + beginDateString + " to " + endDateString;
-					/*     */
-					/* 167 */ PayrollQueryPanel.this.getPayrollHours(list);
-					/*     */ }
-				/* 169 */ if (PayrollQueryPanel.this.databaseStatus) {
-					/* 170 */ mySQLDatabase.clearList();
-					/*     */ }
-				/*     */ }
-			/*     */ });
-		/*     */ }
+		this.lblMessage = new JLabel("Outgoing Message");
+		springLayout.putConstraint("North", this.lblMessage, 113, "North", this);
+		springLayout.putConstraint("West", this.lblMessage, 10, "West", this);
+		add(this.lblMessage);
 
-	/*     */ void produceJSONDataFromList(List<DailyInfoModel> list) {
-	}
+		JLabel lblRegHours = new JLabel("Regular Hours : ");
+		springLayout.putConstraint("North", lblRegHours, 14, "South", this.lblMessage);
+		springLayout.putConstraint("West", lblRegHours, 11, "West", this);
+		add(lblRegHours);
 
-	/*     */ static void deleteDataFromServer() {
-	}
+		this.lblRegHoursData = new JLabel("0.0");
+		springLayout.putConstraint("North", this.lblRegHoursData, 0, "North", lblRegHours);
+		springLayout.putConstraint("West", this.lblRegHoursData, 6, "East", lblRegHours);
+		add(this.lblRegHoursData);
 
-	/*     */ void getJSONData() {
-	}
+		JLabel lblOTHours = new JLabel("Overtime Hours : ");
+		springLayout.putConstraint("East", this.lblRegHoursData, -24, "West", lblOTHours);
+		springLayout.putConstraint("North", lblOTHours, 0, "North", lblRegHours);
+		springLayout.putConstraint("West", lblOTHours, 88, "East", lblRegHours);
+		add(lblOTHours);
 
-	/*     */ static void sortByDateNWriteToFile(List<DailyInfoModel> dataArray) {
-		/* 239 */ if (dataArray == null) {
-			/*     */ return;
-			/*     */ }
-		/*     */
-		/* 243 */ TimeCardSU.sortListByDate(dataArray);
-		/* 244 */ TimeCardSU.writeToFile(dataArray);
-		/*     */ }
+		this.lblOTHoursData = new JLabel("0.0");
+		springLayout.putConstraint("North", this.lblOTHoursData, 0, "North", lblRegHours);
+		springLayout.putConstraint("West", this.lblOTHoursData, 6, "East", lblOTHours);
+		add(this.lblOTHoursData);
 
-	/*     */
-	/*     */
-	/*     */ void setupPanel() {
-		/* 249 */ add(this.lblMessage);
-		/* 250 */ add(this.lblRegHoursData);
-		/* 251 */ add(this.lblOTHoursData);
-		/*     */ }
+		JButton btnResults = new JButton("Get Results");
+		springLayout.putConstraint("North", btnResults, 0, "North", (Component) this.dateChooserPayRollBegin);
+		springLayout.putConstraint("West", btnResults, 26, "East", (Component) this.dateChooserPayRollEnd);
+		springLayout.putConstraint("East", btnResults, -66, "East", this);
+		add(btnResults);
 
-	/*     */
-	/*     */ void getPayrollHours(List<DailyInfoModel> list) {
-		/* 267 */ double rHours = 0.0D;
-		/* 268 */ double otHours = 0.0D;
-		/*     */
-		/* 270 */ for (int i = 0; i < list.size(); i++) {
-			/* 271 */ rHours += ((DailyInfoModel) list.get(i)).getRhours();
-			/* 272 */ otHours += ((DailyInfoModel) list.get(i)).getOhours();
-			/*     */ }
-		/*     */
-		/* 275 */ this.lblRegHoursData.setText(String.format("%.2f", new Object[] { Double.valueOf(rHours) }));
-		/* 276 */ this.lblOTHoursData.setText(String.format("%.2f", new Object[] { Double.valueOf(otHours) }));
-		/*     */ }
+		btnResults.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent arg0)
+			{
+				PayrollQueryPanel.this.lblRegHoursData.setText("0.0");
+				PayrollQueryPanel.this.lblOTHoursData.setText("0.0");
+				Date dateStartBegin = PayrollQueryPanel.this.dateChooserPayRollBegin.getDate();
+				Date dateStartEnd = PayrollQueryPanel.this.dateChooserPayRollEnd.getDate();
 
-	/*     */ public static class DailyInfoModelInDescendingOrderByDate/*     */ implements Comparator<DailyInfoModel>
-	/*     */ {
-		/*     */ public int compare(DailyInfoModel a, DailyInfoModel b) {
-			/* 294 */ return b.getDateInt() - a.getDateInt();
-			/*     */ }
-		/*     */ }
 
-	/*     */
-	/*     */ public static class DailyInfoModelInAscendingOrderByDate/*     */ implements Comparator<DailyInfoModel>
-	/*     */ {
-		/*     */ public int compare(DailyInfoModel a, DailyInfoModel b) {
-			/* 310 */ return a.getDateInt() - b.getDateInt();
-			/*     */ }
-		/*     */ }
-	public List<DailyInfoModel> getDataFromFile(String beginDateString, String endDateString) {
-		/* 325 */ BufferedReader fileReader = null;
-		/* 326 */ String str = "";
-		/* 327 */ List<DailyInfoModel> myList = new ArrayList<>();
-		/*     */
-		/*     */
-		/*     */ try {
-			/* 331 */ fileReader = new BufferedReader(new FileReader("dailyhours.csv"));
-			/*     */
-			/* 333 */ str = fileReader.readLine();
-			/* 334 */ while ((str = fileReader.readLine()) != null) {
-				/* 335 */ DailyInfoModel data = new DailyInfoModel(str);
-				/* 336 */ myList.add(data);
-				/*     */ }
-			/* 338 */ } catch (Exception e) {
-			/* 339 */ JOptionPane.showMessageDialog(null, "Error Reading The File " + e);
-			/* 340 */ e.printStackTrace();
-			/*     */ } finally {
-			/*     */ try {
-				/* 343 */ fileReader.close();
-				/* 344 */ } catch (IOException e) {
-				/* 345 */ JOptionPane.showMessageDialog(null, "Error Closing The File" + e);
-				/* 346 */ e.printStackTrace();
-				/*     */ }
-			/*     */ }
-		/* 349 */ if (myList.size() > 0) {
-			/*     */
-			/* 351 */ sortByDateNWriteToFile(myList);
-			/*     */
-			/* 353 */ List<DailyInfoModel> finalList = new ArrayList<>();
-			/* 354 */ for (int i = 0; i < myList.size(); i++) {
-				/* 355 */ if (((DailyInfoModel) myList.get(i)).getDateInt() >= TimeCardSU
-						.convertDateStringToInt(beginDateString) && (
-				/* 356 */ (DailyInfoModel) myList.get(i)).getDateInt() <= TimeCardSU
-						.convertDateStringToInt(endDateString))
-				/*     */ {
-					/* 358 */ finalList.add(myList.get(i));
+				String beginDateString = TimePanel.getDateString(dateStartBegin);
+				String endDateString = TimePanel.getDateString(dateStartEnd);
+				List<DailyInfoModel> list = null;
+				if (!databaseStatus) {
+
+					list = PayrollQueryPanel.this.getDataFromFile(beginDateString, endDateString);
+					System.out.println("Size of list is : " + list.size());
+
+				}else {
+
+
+					String result = "SELECT * FROM dailyhours WHERE  DATE >= '" +
+							beginDateString + "' AND DATE <= '" + endDateString +
+							"'  ORDER BY DATE DESC";
+					System.out.println(result);
+
+					mySQLDatabase.getDateRangeResults(result);
+					PayrollQueryPanel.this.lblMessage.
+					setText("The Bi-Weekly Payroll Hours  from " + beginDateString + " to " + endDateString + " are:");
+					String title = "Pay Period From "+ beginDateString + " to " + endDateString;
+					list = mySQLDatabase.getList();
+					new MyTable(list, title);
+					//getPayrollHours(list);
+
 				}
-				/*     */ }
-			/* 360 */ return finalList;
-			/*     */ }
-		/* 362 */ return null;
-		/*     */ }
-	/*     */ }
+				//mySQLDatabase.clearList();
 
-/*
- * Location: C:\Users\rober\OneDrive\Documents\MyApplications\StanfordTimeCard\
- * stanfordTimecard.jar!\com\stanfordtimecard\maven\timecard\PayrollQueryPanel.
- * class Java compiler version: 7 (51.0) JD-Core Version: 1.1.3
- */
+
+
+
+
+				if (list.size() == 0) {
+					JFrame frame = new JFrame();
+					JOptionPane.showMessageDialog(frame,
+							"No Data Available Between Date Range. Verify that the Beginning and Ending Dates are accurate",
+							"Data Error",  0);
+				} else {
+
+					String title = "Pay Period for " + beginDateString + " to " + endDateString;
+
+					PayrollQueryPanel.this.getPayrollHours(list);
+				}
+				if (PayrollQueryPanel.this.databaseStatus) {
+					mySQLDatabase.clearList();
+				}
+			}
+		});
+	}
+
+	void produceJSONDataFromList(List<DailyInfoModel> list) {
+	}
+
+	static void deleteDataFromServer() {
+	}
+
+	void getJSONData() {
+	}
+
+	static void sortByDateNWriteToFile(List<DailyInfoModel> dataArray) {
+		if (dataArray == null) {
+			return;
+		}
+
+		TimeCardSU.sortListByDate(dataArray);
+		TimeCardSU.writeToFile(dataArray);
+	}
+
+
+
+	void setupPanel() {
+		add(this.lblMessage);
+		add(this.lblRegHoursData);
+		add(this.lblOTHoursData);
+	}
+
+
+	void getPayrollHours(List<DailyInfoModel> list) {
+		double rHours = 0.0D;
+		double otHours = 0.0D;
+
+		for (int i = 0; i < list.size(); i++) {
+			rHours += ((DailyInfoModel) list.get(i)).getRhours();
+			otHours += ((DailyInfoModel) list.get(i)).getOhours();
+		}
+
+		this.lblRegHoursData.setText(String.format("%.2f", new Object[] { Double.valueOf(rHours) }));
+		this.lblOTHoursData.setText(String.format("%.2f", new Object[] { Double.valueOf(otHours) }));
+	}
+
+	public static class DailyInfoModelInDescendingOrderByDate implements Comparator<DailyInfoModel>
+	{
+		public int compare(DailyInfoModel a, DailyInfoModel b) {
+			return b.getDateInt() - a.getDateInt();
+		}
+	}
+
+
+	public static class DailyInfoModelInAscendingOrderByDate implements Comparator<DailyInfoModel>
+	{
+		public int compare(DailyInfoModel a, DailyInfoModel b) {
+			return a.getDateInt() - b.getDateInt();
+		}
+	}
+	public List<DailyInfoModel> getDataFromFile(String beginDateString, String endDateString) {
+		BufferedReader fileReader = null;
+		String str = "";
+		List<DailyInfoModel> myList = new ArrayList<>();
+
+
+		try {
+			fileReader = new BufferedReader(new FileReader("dailyhours.csv"));
+
+			str = fileReader.readLine();
+			while ((str = fileReader.readLine()) != null) {
+				DailyInfoModel data = new DailyInfoModel(str);
+				myList.add(data);
+			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Error Reading The File " + e);
+			e.printStackTrace();
+		} finally {
+			try {
+				fileReader.close();
+			} catch (IOException e) {
+				JOptionPane.showMessageDialog(null, "Error Closing The File" + e);
+				e.printStackTrace();
+			}
+		}
+		if (myList.size() > 0) {
+
+			sortByDateNWriteToFile(myList);
+
+			List<DailyInfoModel> finalList = new ArrayList<>();
+			for (int i = 0; i < myList.size(); i++) {
+				if (((DailyInfoModel) myList.get(i)).getDateInt() >= TimeCardSU
+						.convertDateStringToInt(beginDateString) && (
+								(DailyInfoModel) myList.get(i)).getDateInt() <= TimeCardSU
+								.convertDateStringToInt(endDateString))
+				{
+					finalList.add(myList.get(i));
+				}
+			}
+			return finalList;
+		}
+		return null;
+	}
+}
+
