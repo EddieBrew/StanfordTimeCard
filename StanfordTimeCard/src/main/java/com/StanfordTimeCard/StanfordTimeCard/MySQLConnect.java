@@ -26,14 +26,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
  
  
- 
- 
- 
- 
- 
- 
- 
- 
  public class MySQLConnect
  {
 	   private final String CLASSNAME = "MySQLConnect";
