@@ -144,7 +144,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.StanfordTimeCard.App</mainClass>
+              <mainClass>com.StanfordTimeCard.StanfordTimeCard.App</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
