@@ -391,10 +391,11 @@ implements ActionListener
 		if (data.isEmpty()) {
 			return false;
 		}
+		String jsonFile = "timeData";
 		// Creates a json file with HomeData data
-		try (FileWriter file = new FileWriter("homeData.json")) {
+		try (FileWriter file = new FileWriter(jsonFile)) {
 			file.write("{ \n");
-			String str = " \"homeData\" ";
+			String str = " \"timeData\" ";
 			file.write(str + ":[ \n");
 			for (int i = 0; i < data.size(); i++) {
 				ObjectMapper Obj = new ObjectMapper();
