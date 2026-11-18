@@ -609,7 +609,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 		Boolean isSuccessful = false;
-		String jsonFile = "timeData.json";
+		String jsonFile = "dailyhours.json";
 		//String sql = "INSERT INTO users (DATE, DAY, EVENTNAME, EVENTNAME, TIME, REGHOURS, OTHOURS) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		String sql = "INSERT INTO " + PAYROLL_HOURS_TABLE + " DATE, DAY, EVENTNAME, EVENTNAME, TIME, REGHOURS, OTHOURS) VALUES (?, ?, ?, ?, ?, ?, ?)";
 

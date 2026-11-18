@@ -391,7 +391,7 @@ implements ActionListener
 		if (data.isEmpty()) {
 			return false;
 		}
-		String jsonFile = "timeData";
+		String jsonFile = "dailyhours.json";
 		// Creates a json file with HomeData data
 		try (FileWriter file = new FileWriter(jsonFile)) {
 			file.write("{ \n");
