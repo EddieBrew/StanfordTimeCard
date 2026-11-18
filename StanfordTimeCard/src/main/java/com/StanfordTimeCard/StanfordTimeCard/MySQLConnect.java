@@ -609,7 +609,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 		Boolean isSuccessful = false;
-		String jsonFile = "homeData.json";
+		String jsonFile = "timeData.json";
 		//String sql = "INSERT INTO users (DATE, DAY, EVENTNAME, EVENTNAME, TIME, REGHOURS, OTHOURS) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		String sql = "INSERT INTO " + PAYROLL_HOURS_TABLE + " DATE, DAY, EVENTNAME, EVENTNAME, TIME, REGHOURS, OTHOURS) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
@@ -627,7 +627,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			
 			
 	
-			JsonNode rootNode = mapper.readTree(new File("homeData.json"));
+			JsonNode rootNode = mapper.readTree(new File(jsonFile));
 
 			// Check if the root elements are an array
 			if (rootNode.isArray()) {
