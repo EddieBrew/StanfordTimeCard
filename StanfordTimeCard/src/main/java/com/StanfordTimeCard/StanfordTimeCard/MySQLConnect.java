@@ -601,75 +601,80 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 		     } 
 	   }
 
+	   
+	   
+	   public boolean updateJSONtoDatabase() {
 
-
-
-
-	public boolean updateJSONtoDatabase() {
-
-
-		Boolean isSuccessful = false;
-		String jsonFile = "dailyhours.json";
-		//String sql = "INSERT INTO users (DATE, DAY, EVENTNAME, EVENTNAME, TIME, REGHOURS, OTHOURS) VALUES (?, ?, ?, ?, ?, ?, ?)";
-		String sql = "INSERT INTO " + PAYROLL_HOURS_TABLE + " DATE, DAY, EVENTNAME, EVENTNAME, TIME, REGHOURS, OTHOURS) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-
-		try (Connection conn = DriverManager.getConnection(this.jdbcUrl, this.userid, this.password);
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-			// Turn off auto-commit for efficient batch processing
-			conn.setAutoCommit(false); 
-
-			// Initialize Jackson ObjectMapper to parse the file
-			ObjectMapper mapper = new ObjectMapper();
-			
-			
-			
-			
+		    boolean isSuccessful = false;
+		    String jsonFile = "dailyhours.json";
+		    String deleteQuery = "DELETE FROM dailyhours";
+		   
+		    try {
+				Connection conn1 = DriverManager.getConnection(this.jdbcUrl, this.userid, this.password);
 	
-			JsonNode rootNode = mapper.readTree(new File(jsonFile));
-
-			// Check if the root elements are an array
-			if (rootNode.isArray()) {
-				for (JsonNode node : rootNode) {
-					// Extract fields safely
-					String date = node.has("date") ? node.get("date").asText() : null;
-					String day = node.has("day") ? node.get("day").asText() : null;
-					int eventnumber = node.has("eventnumber") ? node.get("eventnumber").asInt() : 0;
-					String eventname = node.has("eventname") ? node.get("eventname").asText() : null;
-					String time = node.has("time") ? node.get("time").asText() : null;
-					double rhours = node.has("rhours") ? node.get("rhours").asDouble() : 0.;
-					double ohours = node.has("ohours") ? node.get("ohours").asDouble() : 0.;
-
-					// Bind variables to Statement
-					pstmt.setString(1, date);
-					pstmt.setString(2, day);
-					pstmt.setInt(3, eventnumber);
-					pstmt.setString(4, eventname);
-					pstmt.setString(5, time);
-					pstmt.setDouble(6, rhours);
-					pstmt.setDouble(7, ohours);
-
-					pstmt.addBatch(); // Add to batch for bulk insert performance
-				}
-			}
-
-			// Execute the batch insertion
-			int[] totalRows = pstmt.executeBatch();
-			conn.commit(); // Commit transaction
-
-			//System.out.println("Successfully parsed and imported " + totalRows.length + " JSON records!");
-			isSuccessful = true;
-		} catch (Exception e) {
-			
-			
-			e.printStackTrace();
-		}
+			    PreparedStatement pstmt = conn1.prepareStatement(deleteQuery);
 		
-			
-		return isSuccessful;
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		    
+	
+		    
+		    
+		    
+		    String sql = "INSERT INTO " + PAYROLL_HOURS_TABLE
+		            + " (`DATE`, `DAY`, EVENTNUMBER, EVENTNAME, `TIME`, REGHOURS, OTHOURS)"
+		            + " VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-	}
+		    try (Connection conn1 = DriverManager.getConnection(this.jdbcUrl, this.userid, this.password);
+		    		
+
+		    		 PreparedStatement pstmt1 = conn1.prepareStatement(sql)) {
+
+		        conn1.setAutoCommit(false);
+
+		        ObjectMapper mapper = new ObjectMapper();
+		        File file = new File(jsonFile);
+		        System.out.println("Reading: " + file.getAbsolutePath());
+		        JsonNode rootNode = mapper.readTree(file);
+
+		        JsonNode records = rootNode.path("timeData");
+		        if (!records.isArray()) {
+		            JOptionPane.showMessageDialog(null, "No \"timeData\" array found in JSON - nothing imported.");
+		            return false;
+		        }
+
+		        for (JsonNode node : records) {
+		            pstmt1.setString(1, node.path("date").asText(null));
+		            pstmt1.setString(2, node.path("day").asText(null));
+		            pstmt1.setInt(3, node.path("eventNumber").asInt(0));
+		            pstmt1.setString(4, node.path("eventName").asText(null));
+		            pstmt1.setString(5, node.path("time").asText(null));
+		            pstmt1.setDouble(6, node.path("rhours").asDouble(0.0));
+		            pstmt1.setDouble(7, node.path("ohours").asDouble(0.0));
+		            pstmt1.addBatch();
+		        }
+
+		        int[] totalRows = pstmt1.executeBatch();
+		        conn1.commit();
+
+		        JOptionPane.showMessageDialog(null, "Imported " + totalRows.length + " JSON records!");
+		        isSuccessful = true;
+
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		        JOptionPane.showMessageDialog(null, "Import failed: " + e.getMessage());
+		    }
+
+		    return isSuccessful;
+		}
+
+	   
+
+
+	
 }
 
 
