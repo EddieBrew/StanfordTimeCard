@@ -55,7 +55,7 @@ public class QueryFilterTable extends JFrame {
 	private JButton saveBtn;
 
 	public QueryFilterTable(String url, String user, String pass) {
-		setTitle("Home Improvements and Repairs Query Panel");
+		setTitle("Robert's SEP Time Card");
 		this.URL = url;
 		this.USER = user;
 		this.PASS = pass;

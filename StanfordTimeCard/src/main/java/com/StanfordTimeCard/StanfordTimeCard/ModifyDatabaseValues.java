@@ -58,7 +58,7 @@ public class ModifyDatabaseValues extends JFrame {
 
 	// private TableRowSorter<DefaultTableModel> sorter;
 	public ModifyDatabaseValues(String url, String id, String pw) {
-		setTitle("My Query Table");
+		setTitle("My Query Modification Table ");
 		setSize(800, 600);
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -287,20 +287,5 @@ public class ModifyDatabaseValues extends JFrame {
 				"Error", JOptionPane.ERROR_MESSAGE);
 	}
 
-	public static void main(String[] args) {
-
-		final String DB_URL = "jdbc:mysql://127.0.0.1:3306/home_improvement?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-
-		final String DB_USER = "rbrewer";
-		final String DB_PASS = "Great2BeAliveN2022#";
-
-		try {
-			SwingUtilities.invokeLater(() -> new ModifyDatabaseValues(DB_URL, DB_USER, DB_PASS).setVisible(true));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		//
-	}
-
+	
 }

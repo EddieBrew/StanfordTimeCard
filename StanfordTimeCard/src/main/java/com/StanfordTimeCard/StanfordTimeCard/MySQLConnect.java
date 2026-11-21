@@ -607,12 +607,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 		    boolean isSuccessful = false;
 		    String jsonFile = "dailyhours.json";
-		    String deleteQuery = "DELETE FROM dailyhours";
-		   
+
+	   
 		    try {
-				Connection conn1 = DriverManager.getConnection(this.jdbcUrl, this.userid, this.password);
+		    	 String deleteQuery = "DELETE FROM dailyhours";
+				Connection conn = DriverManager.getConnection(this.jdbcUrl, this.userid, this.password);
 	
-			    PreparedStatement pstmt = conn1.prepareStatement(deleteQuery);
+			    Statement pstmt = conn.createStatement();
+		        pstmt.executeUpdate(deleteQuery);
+			    
 		
 				
 			} catch (SQLException e) {
